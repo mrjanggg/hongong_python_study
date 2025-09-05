@@ -15,10 +15,10 @@
 - **예시 코드:**
 ```python
 num_str = "123"
-real_num = int(num_str)
+real_num = int(num_str) # 123 즉, 정수로 변환 됨.
 
 num = 456
-str_num = str(num) 
+str_num = str(num) # '456' 즉, 문자열로 변환 됨.
 ```
 
 ---
@@ -54,3 +54,44 @@ print(total)  # 결과: 150
 ```
 
 ---
+
+## 4. sorted()
+- **설명:** 리스트나 문자열 등 순서가 있는 데이터를 정렬한 '새로운 리스트'를 만들어주는 함수. 원본 데이터는 그대로 유지됨.
+- **예시 코드:**
+```python
+my_list = [3, 1, 4, 2]
+my_string = "cab"
+
+# 1. 오름차순으로 정렬 (기본값)
+asc_list = sorted(my_list)
+print(asc_list)  # 결과: [1, 2, 3, 4]
+
+# 2. 내림차순으로 정렬 (reverse=True 옵션 사용)
+desc_list = sorted(my_list, reverse=True)
+print(desc_list) # 결과: [4, 3, 2, 1]
+
+# 3. 문자열도 정렬 가능 (결과는 항상 리스트)
+sorted_str_list = sorted(my_string)
+print(sorted_str_list) # 결과: ['a', 'b', 'c']
+```
+
+---
+
+## 6. join()
+- **설명:** 리스트 안에 있는 여러 개의 문자열들을 하나의 문자열로 합쳐주는 메소드. "접착제".join(문자열_리스트) 형태로 사용.
+- **예시 코드:**
+```python
+my_list = ['9', '8', '7']
+
+# 1. 공백 없이 모두 합치기
+combined_str1 = "".join(my_list)
+print(combined_str1) # 결과: "987"
+
+# 2. 띄어쓰기(' ')를 접착제로 사용해 합치기
+my_list2 = ['hello', 'world']
+combined_str2 = " ".join(my_list2)
+print(combined_str2) # 결과: "hello world"
+```
+
+---
+
