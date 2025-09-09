@@ -57,6 +57,11 @@
   ```python
   return sum(range(min(a, b), max(a, b) + 1, 1))
   ```
+  
+  ```python
+  #만약 특정한 수의 등차수열의 결과값을 알고 싶을 때
+  return sum(range(2, 78 + 1)) # 결과: 3080 
+  ```
 
 ---
 
@@ -135,3 +140,43 @@
 
 ---
 
+## 9. .index()
+- **설명:** 리스트 안에서 내가 찾고 싶은 값(value)이 몇 번째 칸에 있는지 그 '인덱스 번호'를 알려주는 메소드.
+- **예시 코드:**
+  ```python
+  my_list = ['사과', '바나나', '딸기', '바나나']
+
+  # 1. '딸기'의 위치(인덱스) 찾기
+  # '딸기'는 2번 인덱스에 있으므로 2를 반환
+  index_strawberry = my_list.index('딸기')
+  print(index_strawberry)  # 결과: 2
+
+  # 2. 중복된 값이 있을 경우
+  # '바나나'는 1번, 3번 인덱스에 있지만,
+  # .index()는 가장 먼저 찾은 첫 번째 값의 인덱스만 알려줌
+  index_banana = my_list.index('바나나')
+  print(index_banana) # 결과: 1
+  ```
+
+---
+
+## 10. f-string 과 .format() (문자열 포매팅)
+- **설명:** 변수에 담긴 값을 문자열 안에 자연스럽게 넣고 싶을 때 사용하는 방법들입니다. f-string이 더 최신이고 간결해서 사용이 권장됩니다.
+- **예시 코드:**
+  ```python
+  name = "진성"
+  place = "서울"
+
+  # 1. f-string 사용법 (★★★★★ 강력 추천)
+  # 문자열 시작에 f를 붙이고, 변수를 { } 중괄호로 직접 감쌉니다.
+  f_string_result = f"안녕하세요, {name}입니다. 저는 {place}에 삽니다."
+  print(f_string_result)
+  # 결과: 안녕하세요, 진성입니다. 저는 서울에 삽니다.
+
+
+  # 2. .format() 메소드 사용법
+  # 문자열 안에 { }로 자리를 비워두고, 뒤에서 .format()으로 값을 순서대로 넣어줍니다.
+  format_result = "안녕하세요, {}입니다. 저는 {}에 삽니다.".format(name, place)
+  print(format_result)
+  # 결과: 안녕하세요, 진성입니다. 저는 서울에 삽니다.
+  ```
