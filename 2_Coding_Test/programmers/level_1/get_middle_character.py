@@ -12,7 +12,7 @@
 def solution(s):
     len_s = len(s)
     half = int(len_s/2)
-    
+
     if len_s % 2 == 0:
         return s[half - 1 : half + 1]
     else:
