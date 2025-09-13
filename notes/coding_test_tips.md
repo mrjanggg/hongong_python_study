@@ -4,39 +4,39 @@
 - **설명:** 숫자 number을 str(number)으로 변환한 뒤, 다시 str를 list()로 변환해야한다.
             이렇게 해야, 나중에 개별 숫자들이 리스트의 하나의 개별 요소가 되어 언제든지 개별적으로 수정이 가능하기 때문이다.
 - **예시 코드:**
-```python
-list_number = list(str(number))
-```
+  ```python
+  list_number = list(str(number))
+  ```
   
 ---
 
 ## 2. reversed()함수 쓸 때 주의해야할 점.숫자를 문자열로 변환하는 팁.
 - **설명:** reversed() 함수의 결과가 제너레이터이기 때문에, 여러번 사용이 안되며, 필요할 때만 곧바로 함수를 사용해야한다.
 - **예시 코드:**
-```python
-number = [1, 2, 3, 4, 5, 6]
+  ```python
+  number = [1, 2, 3, 4, 5, 6]
 
-for i in reversed(numbers):               #즉 필요한 시점에 reversed() 함수를 사용합니다.
-  print("첫 번째 반복문: {}".format(i)) 
+  for i in reversed(numbers):               #즉 필요한 시점에 reversed() 함수를 사용합니다.
+    print("첫 번째 반복문: {}".format(i)) 
 
-for i in reversed(numbers):               #즉 필요한 시점에 reversed() 함수를 사용합니다.
-  print("두 번째 반복문: {}".format(i))
-```
+  for i in reversed(numbers):               #즉 필요한 시점에 reversed() 함수를 사용합니다.
+    print("두 번째 반복문: {}".format(i))
+  ```
 
 ---
 
 ## 3. 이중 리스트를 for문으로 돌릴 때 팁.
 - **설명:** 설명 생략 아래의 예시 코드 참고.
 - **예시 코드:**
-```python
-def solution(sizes):
-    max_width = 0
-    max_height = 0
-    
-    for size in sizes: # 여기서 처럼 sizes라는 이중리스트를 in 키워드만 쓰며(즉, range 쓰질 않음) size는 리스트로 반환된다. 
-        width, height = max(size), min(size)
-        max_width = max(max_width, width)
-        max_height = max(max_height, height)
-        
-    return max_width * max_height
-```
+  ```python
+  def solution(sizes):
+      max_width = 0
+      max_height = 0
+      
+      for size in sizes: # 여기서 처럼 sizes라는 이중리스트를 in 키워드만 쓰며(즉, range 쓰질 않음) size는 리스트로 반환된다. 
+          width, height = max(size), min(size)
+          max_width = max(max_width, width)
+          max_height = max(max_height, height)
+          
+      return max_width * max_height
+  ```
