@@ -49,8 +49,6 @@ INSERT INTO buy VALUES(NULL, 'MMU', '지갑', NULL, 30, 4);
 SELECT * FROM member;
 SELECT * FROM buy;
 
--- 연습(2025.09.16 추가)
-
 SELECT mem_name FROM member;
 
 SELECT mem_name, addr, debut_date FROM member;
@@ -105,3 +103,60 @@ SELECT mem_id, mem_name, debut_date FROM member ORDER BY debut_date;
 
 -- 내림차순
 SELECT mem_id, mem_name, debut_date FROM member ORDER BY debut_date DESC;
+
+SELECT mem_id, mem_name, debut_date, height 
+	FROM member 
+    WHERE height >= 164 
+    ORDER BY height DESC ;
+    
+    
+SELECT mem_id, mem_name, debut_date, height 
+	FROM member 
+    WHERE height >= 164 
+    ORDER BY height DESC, debut_date ASC ;
+    
+    
+SELECT *
+	FROM member
+    ORDER BY DEBUT_DATE
+    LIMIT 3;
+    
+SELECT mem_name, height
+	FROM member
+    ORDER BY height DESC
+    LIMIT 3, 2;
+    
+    
+SELECT addr FROM member;
+SELECT addr FROM member ORDER BY addr;
+
+-- DISTINCT 사용하기
+SELECT DISTINCT addr FROM member ORDER BY addr;
+
+-- GROUP BY 사용하기!!!
+SELECT mem_id, SUM(amount) FROM buy GROUP BY mem_id;
+
+-- 별칭(alias) 사용하기
+SELECT mem_id "회원 아이디", SUM(amount) "총 구매 개수" FROM buy GROUP BY mem_id;
+
+
+SELECT mem_id "회원 아이디", SUM(price * amount) "총 구매 금액" FROM buy GROUP BY mem_id;
+
+SELECT AVG(amount) "평균 구매 개수" FROM buy;
+SELECT mem_id, AVG(amount) "평균 구매 개수" FROM buy GROUP BY mem_id;
+
+SELECT COUNT(*) FROM member;
+SELECT COUNT(phone1) "연락처가 있는 회원" FROM member;
+
+
+SELECT mem_id "회원 아이디", SUM(price * amount) "총 구매 금액"
+	FROM buy 
+    GROUP BY mem_id
+    HAVING SUM(price * amount) >= 1000;
+    
+
+SELECT mem_id "회원 아이디", SUM(price * amount) "총 구매 금액"
+	FROM buy 
+    GROUP BY mem_id
+    HAVING SUM(price * amount) >= 1000
+    ORDER BY SUM(price * amount) DESC;
