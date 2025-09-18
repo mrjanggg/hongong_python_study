@@ -160,3 +160,131 @@ SELECT mem_id "회원 아이디", SUM(price * amount) "총 구매 금액"
     GROUP BY mem_id
     HAVING SUM(price * amount) >= 1000
     ORDER BY SUM(price * amount) DESC;
+    
+
+-- INSERT 문의 기본 문법
+USE market_db;
+CREATE TABLE hongong1 (toy_id INT, toy_name CHAR(4), age INT);
+INSERT INTO hongong1 VALUES(1, '우디', 25);
+INSERT INTO hongong1 (toy_id, toy_name) VALUES(2, '버즈');
+INSERT INTO hongong1 (toy_name, age, toy_id) VALUES('제시', 20, 3);
+
+-- AUTO_INCREMENT
+CREATE TABLE hongong2 (
+	toy_id INT AUTO_INCREMENT PRIMARY KEY, 
+    toy_name CHAR(4), 
+    age INT);
+
+INSERT INTO hongong2 VALUES(NULL, '보핍', 25);
+INSERT INTO hongong2 VALUES(NULL, '슬링키', 22);
+INSERT INTO hongong2 VALUES(NULL, '렉스', 21);
+SELECT * FROM hongong2;
+SELECT LAST_INSERT_ID();
+
+ALTER TABLE hongong2 AUTO_INCREMENT=100;
+INSERT INTO hongong2 VALUES(NULL, '재남', 35);
+SELECT * FROM hongong2;
+
+
+-- AUTO_INCREMENT 2
+CREATE TABLE hongong3 (
+	toy_id INT AUTO_INCREMENT PRIMARY KEY, 
+    toy_name CHAR(4), 
+    age INT);
+ALTER TABLE hongong3 AUTO_INCREMENT=1000; -- 시작값은 1000으로 지정
+SET @@auto_increment_increment=3; -- 증가값은 3으로 지정
+
+INSERT INTO hongong3 VALUES(NULL, '토마스', 20);
+INSERT INTO hongong3 VALUES(NULL, '제임스', 23);
+INSERT INTO hongong3 VALUES(NULL, '고든', 25);
+SELECT * FROM hongong3;
+
+
+-- 다른 테이블의 데이터를 한 번에 입력하는 insert into select 문
+SELECT COUNT(*) FROM world.city;
+DESC world.city; -- 여기서 DESC는 Describe의 약자
+SELECT * FROM world.city LIMIT 5;
+
+CREATE TABLE city_popul (city_name CHAR(35), population INT);
+
+INSERT INTO city_popul
+	SELECT Name, Population FROM world.city;
+    
+SELECT * FROM city_popul LIMIT 10;
+
+
+-- 2025.09.18 Thu
+
+USE market_db;
+CREATE TABLE hongong4 (
+tinyint_col TINYINT,
+smallint_col SMALLINT,
+int_col INT,
+bigint_col BIGINT );
+
+
+
+CREATE TABLE member -- 회원 테이블
+( mem_id CHAR(8) NOT NULL PRIMARY KEY, -- 회원 아이디(PK)
+  mem_name VARCHAR(10) NOT NULL, -- 이름
+  mem_number TINYINT NOT NULL, -- 인원수
+  addr CHAR(2) NOT NULL, -- 주소(경기,서울,경남 식으로 2글자만 입력)
+  phone1 CHAR(3), -- 연락처의 국번(02, 031, 055 등)
+  phone2 CHAR(8), -- 연락처의 나머지 전화번호(하이픈 제외)
+  height TINYINT UNSIGNED, -- 평균 키
+  debut_date DATE -- 데뷔 일자
+);
+
+
+
+CREATE DATABASE netflix_db;
+USE netflix_db;
+CREATE TABLE movie
+(movie_id INT,
+movie_title VARCHAR(30),
+movie_director VARCHAR(20),
+movie_star VARCHAR(20),
+movie_script LONGTEXT,
+movie_film LONGBLOB
+);
+
+
+
+USE market_db;
+SET @myVar1 = 5;
+SET @myVar2 = 4.25;
+
+SELECT @myVar1;
+SELECT @myVar1 + @myVar2;
+
+SET @txt = '가수이름==> ';
+SET @height = 166;
+SELECT @txt, mem_name FROM member WHERE height >@height;
+
+
+
+
+SET @count = 3;
+PREPARE mySQL FROM 'SELECT mem_name, height FROM member ORDER BY height LIMIT ?';
+EXECUTE mySQL USING @count;
+
+
+
+
+SELECT AVG(price) AS '평균 가격' FROM buy;
+SELECT CAST(AVG(price) AS SIGNED) '평균 가격' FROM buy; -- 또는
+SELECT CONVERT(AVG(price), SIGNED) '평균 가격' FROM buy;
+
+
+
+SELECT CAST('2022$12$12' AS DATE);
+SELECT CAST('2022/12/12' AS DATE);
+SELECT CAST('2022%12%12' AS DATE);
+SELECT CAST('2022@12@12' AS DATE);
+
+
+
+
+SELECT num, CONCAT(CAST(price AS CHAR), 'X', CAST(amount AS CHAR), '=')
+'가격x수량', price*amount '구매액'
+FROM buy; -- 170page
