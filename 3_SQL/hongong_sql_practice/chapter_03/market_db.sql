@@ -91,12 +91,13 @@ SELECT *
 	WHERE mem_name LIKE '__핑크';
     
     
--- 서브쿼리
+-- 서브쿼리(이중문)
 
 SELECT height FROM member WHERE mem_name = '에이핑크';
 SELECT mem_name, height FROM member WHERE height > 164;
 
 SELECT mem_name, height FROM member WHERE height > (SELECT height FROM member WHERE mem_name = '에이핑크');
+SELECT * FROM member;
 
 
 SELECT mem_id, mem_name, debut_date FROM member ORDER BY debut_date;
@@ -212,8 +213,43 @@ INSERT INTO city_popul
     
 SELECT * FROM city_popul LIMIT 10;
 
+USE market_db;
+UPDATE city_popul
+	SET city_name = '서울'
+	WHERE city_name = 'Seoul';
+SELECT * FROM city_popul WHERE city_name = '서울';
 
--- 2025.09.18 Thu
+UPDATE city_popul
+	SET city_name = '뉴욕', population = 0
+	WHERE city_name = 'New York';
+SELECT * FROM city_popul WHERE city_name = '뉴욕';
+
+-- set 다음에 where이 없다면 모든 '행'의 값이 바뀌니 조심. 아래는 예제
+UPDATE city_popul
+	SET city_name = '서울';
+SELECT * FROM city_popul WHERE city_name = '서울';
+
+UPDATE city_popul
+	SET population = population / 10000;
+SELECT * FROM city_popul LIMIT 10;
+
+-- DELETE문 연습
+DELETE FROM city_popul
+	WHERE city_name LIKE 'New%';
+
+-- 대용량 테이블의 삭제 방법 3가지
+CREATE TABLE big_table1 (SELECT * FROM world.city, sakila.country);
+CREATE TABLE big_table2 (SELECT * FROM world.city, sakila.country);
+CREATE TABLE big_table3 (SELECT * FROM world.city, sakila.country);
+SELECT COUNT(*) FROM big_table1;
+
+DELETE FROM big_table1;
+DROP TABLE big_table2;
+TRUNCATE TABLE big_table3;
+
+
+
+-- 2025.09.18 Thur --
 
 USE market_db;
 CREATE TABLE hongong4 (
@@ -262,20 +298,14 @@ SET @height = 166;
 SELECT @txt, mem_name FROM member WHERE height >@height;
 
 
-
-
 SET @count = 3;
 PREPARE mySQL FROM 'SELECT mem_name, height FROM member ORDER BY height LIMIT ?';
 EXECUTE mySQL USING @count;
 
 
-
-
 SELECT AVG(price) AS '평균 가격' FROM buy;
 SELECT CAST(AVG(price) AS SIGNED) '평균 가격' FROM buy; -- 또는
 SELECT CONVERT(AVG(price), SIGNED) '평균 가격' FROM buy;
-
-
 
 SELECT CAST('2022$12$12' AS DATE);
 SELECT CAST('2022/12/12' AS DATE);
@@ -283,8 +313,60 @@ SELECT CAST('2022%12%12' AS DATE);
 SELECT CAST('2022@12@12' AS DATE);
 
 
-
-
 SELECT num, CONCAT(CAST(price AS CHAR), 'X', CAST(amount AS CHAR), '=')
 '가격x수량', price*amount '구매액'
 FROM buy; -- 170page
+
+
+
+
+-- 2025. 09. 19 Fri --
+
+/* 내부 조인의 형식
+SELECT <열 목록>
+FROM <첫 번째 테이블>
+	INNER JOIN <두 번째 테이블>
+    ON <조인될 조건>
+[WHERE 검색 조건] */
+
+USE market_db;
+SELECT *
+	FROM buy
+    INNER JOIN member
+    ON buy.mem_id = member.mem_id
+WHERE member.mem_id = 'BLK';
+
+SELECT *
+	FROM buy
+    INNER JOIN member
+    ON buy.mem_id = member.mem_id;
+
+-- 내부 조인의 간결한 표현
+SELECT buy.mem_id, mem_name, prod_name, addr, CONCAT(phone1, phone2) '연락처'
+	FROM buy
+    INNER JOIN member
+    ON buy.mem_id = member.mem_id;
+    
+    
+SELECT buy.mem_id, member.mem_name, buy.prod_name, member.addr, CONCAT(member.phone1, member.phone2) '연락처'
+	FROM buy
+    INNER JOIN member
+    ON buy.mem_id = member.mem_id; -- 결론은 이러면 코드가 너무 복잡해보임. 
+    
+-- 따라서 별칭을 줄 수 있는 방법이 있음.
+SELECT B.mem_id, M.mem_name, B.prod_name, M.addr, CONCAT(M.phone1, M.phone2) '연락처' 
+	FROM buy B -- B라고 별칭.
+		INNER JOIN member M -- M이라고 별칭.
+		ON B.mem_id = M.mem_id;
+
+SELECT B.mem_id, M.mem_name, B.prod_name, M.addr 
+	FROM buy B
+		INNER JOIN member M
+		ON B.mem_id = M.mem_id
+	ORDER BY M.mem_id;
+    
+SELECT DISTINCT M.mem_id, M.mem_name, M.addr 
+	FROM buy B
+		INNER JOIN member M
+		ON B.mem_id = M.mem_id
+	ORDER BY M.mem_id;
