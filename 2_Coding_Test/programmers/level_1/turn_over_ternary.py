@@ -10,39 +10,6 @@
 
 def solution(n):
     answer = 0
-    
-    reversed_ternary_str = three_recursive(n)
-    three_list = []
-    j = 0
-    
-    # 2. 뒤집힌 3진수 문자열을 순회하며 각 자릿수를 정수로 변환하여 리스트에 담기
-    for char in reversed_ternary_str:
-        three_list.append(int(char))
-    
-    # 3. 리스트를 뒤집어서 10진법으로 변환
-    for item in three_list[::-1]:
-        answer += item * (3 ** j)
-        j += 1
-        
-    return answer
-
-
-# 재귀 함수: 10진수를 3진수로 변환하며 뒤집힌 문자열을 반환
-def three_recursive(n):
-    divisor = n // 3
-    remainder = n % 3
-    
-    if divisor == 0:
-        return str(remainder)
-    else:
-        return three_recursive(divisor) + str(remainder)
-    
-
-
-
-
-def solution(n):
-    answer = 0
     three_list = []
     i = 0
     
