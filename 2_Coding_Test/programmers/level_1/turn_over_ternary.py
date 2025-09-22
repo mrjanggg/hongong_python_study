@@ -11,7 +11,6 @@
 def solution(n):
     answer = 0
     
-    # 1. 재귀 함수를 한 번만 호출하여 결과를 변수에 저장
     reversed_ternary_str = three_recursive(n)
     three_list = []
     j = 0
@@ -37,3 +36,36 @@ def three_recursive(n):
         return str(remainder)
     else:
         return three_recursive(divisor) + str(remainder)
+    
+
+
+
+
+def solution(n):
+    answer = 0
+    three_list = []
+    i = 0
+    
+    # 1. 재귀 함수를 한 번만 호출하여 결과를 변수에 저장
+    reversed_ternary_str = three_recursive(n)
+    
+    # 2. 뒤집힌 3진수 문자열을 순회하며 각 자릿수를 정수로 변환하여 리스트에 담기
+    for char in reversed_ternary_str:
+        three_list.append(int(char))
+    
+    for item in three_list[::-1]:
+        answer += item * (3 ** i)
+        i += 1
+        
+    return answer
+
+
+#재귀를 호출하기.
+def three_recursive(n):
+    divisor = n // 3
+    reminder = n % 3
+    
+    if divisor == 0:
+        return str(reminder)
+    else:
+        return str(reminder) + three_recursive(divisor)
