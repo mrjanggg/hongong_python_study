@@ -52,13 +52,8 @@
   total = sum(numbers)
 
   print(total)  # 결과: 150
-  ```
-  
-  ```python
   return sum(range(min(a, b), max(a, b) + 1, 1))
-  ```
   
-  ```python
   #만약 특정한 수의 등차수열의 결과값을 알고 싶을 때
   return sum(range(2, 78 + 1)) # 결과: 3080 
   ```
@@ -191,7 +186,6 @@
   #1. `enumerate()`를 사용해 인덱스와 값을 동시에 얻기
   for index, fruit in enumerate(fruits):
     print(f"인덱스: {index}, 값: {fruit}")
-    
   # 결과:
   # 인덱스: 0, 값: 사과
   # 인덱스: 1, 값: 바나나
@@ -205,6 +199,45 @@
   # 순서: 1번, 과일: 사과
   # 순서: 2번, 과일: 바나나
   # 순서: 3번, 과일: 딸기
+  ```
 
 ---
 
+## 12. ord()와 chr()
+- **설명:** `ord()`는 문자를 아스키 코드(정수)로 변환하는 함수이고, `chr()`은 아스키 코드(정수)를 문자로 변환하는 함수입니다. 이 두 함수를 사용하면 '시저 암호' 문제처럼 문자를 일정한 규칙에 따라 바꾸는 작업을 쉽게 구현할 수 있습니다.
+- **예시 코드:**
+  ```python
+  # 1. ord(): 문자를 아스키 코드(정수로 변환)
+  char_a = 'A'
+  char_z = 'z'
+  print("ord('{}'): {}".format(char_a, ord(char_a))) # 결과: ord('A'): 65
+  print("ord('{}'): {}".format(char_z, ord(char_z))) # 결과: ord('z'): 122
+
+  # 2. chr(): 아스키 코드(정수)를 문자로 변환
+  ascii_A = 65
+  ascii_z = 122
+  print("chr({}): {}".format(ascii_A, chr(ascii_A))) # 결과: chr(65): A
+  print("chr({}): {}".format(ascii_z, chr(ascii_z))) # 결과: chr(122): z
+  ```
+
+
+## 13. get()
+- **설명:** 딕셔너리에서 `키(key)`를 사용해 `값(value)`을 가져오는 메소드입니다. 일반적인 대괄호 `[]` 접근 방식과 다르게, 존재하지 않는 키에 접근해도 오류가 발생하지 않고 `None`을 반환합니다. 이 덕분에 코드를 더 안전하게 작성할 수 있습니다.
+- **예시 코드:**
+  ```python
+  my_dict = {'apple': 1, 'banana': 2}
+
+  # 1. 존재하는 키에 접근
+  value = my_dict.get('apple')
+  print("my_dict.get('apple'): {}".format(value)) # 결과: my_dict.get('apple'): 1
+
+  # 2. 존재하지 않는 키에 접근 -> 오류 없이 None을 반환
+  value = my_dict.get('orange')
+  print("my_dict.get('orange'): {}".format(value)) # 결과: my_dict.get('orange'): None
+
+  # 3. get()은 키가 없을 때 반환할 기본값을 설정할 수 있습니다.
+  value = my_dict.get('orange', '키가 없습니다')
+  print("my_dict.get('orange', '키가 없습니다'): {}".format(value)) # 결과: my_dict.get('orange', '키가 없습니다'): 키가 없습니다
+  ```
+
+---
