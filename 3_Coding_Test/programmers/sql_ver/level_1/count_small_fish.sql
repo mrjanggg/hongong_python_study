@@ -1,4 +1,4 @@
--- 문제: 프로그래머스 Lv.2 '잔챙이 잡은 수 구하기'
+-- 문제: 프로그래머스 Lv.1 '잔챙이 잡은 수 구하기'
 -- 설명: 물고기 정보 테이블(FISH_INFO)에서 LENGTH(길이) 정보가 NULL인, 즉 길이를 측정하지 않은 잔챙이 물고기의 수를 구하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/293258
 
