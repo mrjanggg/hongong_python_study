@@ -1,4 +1,4 @@
--- 문제: 프로그래머스 Lv.2 '가장 비싼 상품 구하기'
+-- 문제: 프로그래머스 Lv.1 '가장 비싼 상품 구하기'
 -- 설명: 상품 테이블(PRODUCT)에서 가장 높은 가격의 상품을 구하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/131697
 
