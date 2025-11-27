@@ -3,17 +3,17 @@
 #       다음 제한 조건을 보고, 조건을 만족하는 함수, solution을 완성해주세요.  
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12954
 
-# 풀이: 결과를 담을 빈 리스트(answer)를 선언하고, 반복마다 더해줄 초기 x값(origin_x)을 따로 저장합니다.
-#       n번 반복하는 for문을 실행하면서, 먼저 현재 x값을 answer 리스트에 추가(append)하고,
-#       다음 반복을 위해 x값에 원래 간격(origin_x)만큼 더해주는 과정을 반복합니다.
-
+# 풀이:
+# 1. 빈 리스트(answer)를 생성한다.
+# 2. 1부터 n까지 반복하면서 (i = 1, 2, ..., n), 각 i에 x를 곱한 값(i*x)을 계산한다.
+# 3. 계산된 값(i*x)을 리스트(answer)에 순서대로 추가(append)한다.
+# 4. 반복이 완료된 최종 리스트를 반환한다.
 
 def solution(x, n):
-    answer = []
-    origin_x = x
     
-    for i in range(0, n):
-        answer.append(x)
-        x += origin_x
-            
+    answer = []
+    
+    for i in range(1, n+1):
+        answer.append(i*x)
+    
     return answer
