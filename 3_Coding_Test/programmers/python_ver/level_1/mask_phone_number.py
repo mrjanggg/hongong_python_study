@@ -1,25 +1,24 @@
-# 문제: 프로그래머스 Lv.1 '핸드폰 번호 가리기'
-# 설명: 프로그래머스 모바일은 개인정보 보호를 위해 고지서를 보낼 때 고객들의 전화번호의 일부를 가립니다.
-#       전화번호가 문자열 phone_number로 주어졌을 때, 
-#       전화번호의 뒷 4자리를 제외한 나머지 숫자를 전부 *으로 가린 문자열을 리턴하는 함수, solution을 완성해주세요.
+# 문제: 프로그래머스 lv.1 '핸드폰 번호 가리기'
+# 설명: 전화번호 문자열(phone_number)의 뒷 4자리를 제외한 나머지 숫자를 모두 '*'로 가린 문자열을 반환해야 한다.
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12948
 
-# 풀이
-# 1. 전화번호를 수정 가능한 list()함수를 활용하여 리스트(리스트1)로 만들고,
-# 2. 다른 리스트 하나는 모두 *로 채운 뒤(리스트2),
-# 3. 마지막 네 자리만, 리스트1의 값을 리스트2로 전달한 뒤,
-# 4. 새로운 문자열에 join()함수를 활용하여 리스트2의 값을 문자열로 합친다.
+# 풀이:
+# 1. 전화번호의 길이와 마스킹된 개수를 세는 카운트 변수를 활용하여 순회한다.
+# 2. 반복문에서 현재 위치(i)가 뒤에서 4번째 자리 이내인지 확인한다.
+# 3. 만약 뒤에서 4자리가 넘는 위치라면 '*'를 리스트에 추가하고 카운트를 증가시켜 마스킹한다.
+# 4. 뒤에서 4자리가 되는 위치부터는 원본 숫자를 리스트에 추가한다.
+# 5. 최종적으로 리스트의 원소들을 하나의 문자열로 합쳐(join) 반환한다.
 
 def solution(phone_number):
     
-    list_ph_num = list(phone_number)
     answer = []
+    count = 0
     
-    for i in range(len(phone_number)):
-        answer.append('*')
-    
-    for i in range(-1, -5, -1):
-        answer[i] = list_ph_num[i]
-    
-    str_answer = "".join(answer)
-    return str_answer
+    for i in range(0, len(phone_number), 1):
+        if (len(phone_number) - count) > 4:
+            answer.append('*')
+            count += 1
+        else:
+            answer.append(phone_number[i])
+            
+    return "".join(answer)
