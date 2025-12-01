@@ -60,7 +60,50 @@
 
 ---
 
-## 4. sorted()
+## 5. abs()
+- **설명:** 주어진 **숫자의 절댓값(Absolute Value)**을 반환하는 함수입니다. 입력된 숫자가 음수일 경우 양수로 변환하여 반환하고, 양수나 0일 경우 그 값을 그대로 반환합니다.
+- **예시 코드:**
+  ```python
+  # 1. 양수의 절댓값
+  positive_num = 10
+  result1 = abs(positive_num)
+  print(f"abs({positive_num}): {result1}") # 결과: abs(10): 10
+
+  # 2. 음수의 절댓값
+  negative_num = -5.7
+  result2 = abs(negative_num)
+  print(f"abs({negative_num}): {result2}") # 결과: abs(-5.7): 5.7
+
+  # 3. 0의 절댓값
+  zero_num = 0
+  result3 = abs(zero_num)
+  print(f"abs({zero_num}): {result3}") # 결과: abs(0): 0
+  ```
+
+---
+
+## 6. type()
+- **설명:** 객체의 **정확한 자료형(class)**을 반환합니다. 리스트의 각 원소를 반복하여 자료형을 확인할 때 사용됩니다.
+- **예시 코드:**
+  ```python
+  my_list = ["apple", 123, 3.14, True]
+
+  # 리스트의 첫 번째 원소의 자료형 확인 (문자열)
+  type1 = type(my_list[0])
+  print(f"'apple'의 타입: {type1}")  # 결과: <class 'str'>
+
+  # 리스트의 두 번째 원소의 자료형 확인 (정수)
+  type2 = type(my_list[1])
+  print(f"123의 타입: {type2}")    # 결과: <class 'int'>
+
+  # 비교를 통해 자료형 일치 여부 확인
+  is_int = type(my_list[1]) == int
+  print(f"123이 int형인가요? {is_int}") # 결과: True
+  ```
+---
+
+
+## 6. sorted()
 - **설명:** 리스트나 문자열 등 순서가 있는 데이터를 정렬한 '새로운 리스트'를 만들어주는 함수. 원본 데이터는 그대로 유지됨.
 - **예시 코드:**
   ```python
@@ -100,7 +143,30 @@
 
 ---
 
-## 7. .lower() / .upper()
+## f-string 과 .format() (문자열 포매팅)
+- **설명:** 변수에 담긴 값을 문자열 안에 자연스럽게 넣고 싶을 때 사용하는 방법들입니다. f-string이 더 최신이고 간결해서 사용이 권장됩니다.
+- **예시 코드:**
+  ```python
+  name = "진성"
+  place = "서울"
+
+  # 1. f-string 사용법 (★★★★★ 강력 추천)
+  # 문자열 시작에 f를 붙이고, 변수를 { } 중괄호로 직접 감쌉니다.
+  f_string_result = f"안녕하세요, {name}입니다. 저는 {place}에 삽니다."
+  print(f_string_result)
+  # 결과: 안녕하세요, 진성입니다. 저는 서울에 삽니다.
+
+
+  # 2. .format() 메소드 사용법
+  # 문자열 안에 { }로 자리를 비워두고, 뒤에서 .format()으로 값을 순서대로 넣어줍니다.
+  format_result = "안녕하세요, {}입니다. 저는 {}에 삽니다.".format(name, place)
+  print(format_result)
+  # 결과: 안녕하세요, 진성입니다. 저는 서울에 삽니다.
+  ```
+
+---
+
+## .lower() / .upper()
 - **설명:** 문자열의 모든 글자를 소문자(`.lower()`) 또는 대문자(`.upper()`)로 일괄 변경해주는 메소드. 대소문자를 구분하지 않고 비교해야 할 때 필수적.
 - **예시 코드:**
   ```python
@@ -117,7 +183,7 @@
 
 ---
 
-## 8. .count()
+## .count()
 - **설명:** 문자열이나 리스트 안에서 특정 원소가 몇 번 나타나는지 개수를 세어주는 메소드.
 - **예시 코드:**
   ```python
@@ -151,29 +217,6 @@
   # .index()는 가장 먼저 찾은 첫 번째 값의 인덱스만 알려줌
   index_banana = my_list.index('바나나')
   print(index_banana) # 결과: 1
-  ```
-
----
-
-## 10. f-string 과 .format() (문자열 포매팅)
-- **설명:** 변수에 담긴 값을 문자열 안에 자연스럽게 넣고 싶을 때 사용하는 방법들입니다. f-string이 더 최신이고 간결해서 사용이 권장됩니다.
-- **예시 코드:**
-  ```python
-  name = "진성"
-  place = "서울"
-
-  # 1. f-string 사용법 (★★★★★ 강력 추천)
-  # 문자열 시작에 f를 붙이고, 변수를 { } 중괄호로 직접 감쌉니다.
-  f_string_result = f"안녕하세요, {name}입니다. 저는 {place}에 삽니다."
-  print(f_string_result)
-  # 결과: 안녕하세요, 진성입니다. 저는 서울에 삽니다.
-
-
-  # 2. .format() 메소드 사용법
-  # 문자열 안에 { }로 자리를 비워두고, 뒤에서 .format()으로 값을 순서대로 넣어줍니다.
-  format_result = "안녕하세요, {}입니다. 저는 {}에 삽니다.".format(name, place)
-  print(format_result)
-  # 결과: 안녕하세요, 진성입니다. 저는 서울에 삽니다.
   ```
 
 ---
