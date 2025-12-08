@@ -7,22 +7,20 @@
 #       부서별로 신청한 금액이 들어있는 배열 d와 예산 budget이 매개변수로 주어질 때, 최대 몇 개의 부서에 물품을 지원할 수 있는지 return 하도록 solution 함수를 완성해주세요.
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12982
 
-# 풀이
-# 1. 가장 적은 비용으로 최대한 많은 부서를 지원하기 위해, sorted(d)를 사용하여 부서별 신청 금액이 담긴 배열 d를 오름차순으로 정렬합니다.
-# 2. for 반복문을 사용하여 정렬된 sorted_list의 각 부서별 신청 금액을 순서대로 하나씩 확인합니다.
-# 3. 반복문 안에서, 현재 부서의 신청 금액이 남아있는 budget보다 작거나 같은지 확인하는 조건문을 작성합니다. 동시에 budget이 0보다 큰지 확인하여 불필요한 연산을 방지합니다.
-# 4. 조건이 참일 경우, 해당 부서에 물품을 지원하고 budget에서 해당 금액을 차감합니다. 그리고 지원된 부서의 개수를 세기 위해 new_list에 해당 부서의 금액을 추가합니다.
-# 5. 모든 반복이 끝나면, len(new_list)를 통해 지원된 부서의 총 개수를 반환합니다.
+# 풀이:
+# 1. 탐욕 알고리즘(Greedy Algorithm) 적용: 최대 개수의 부서를 지원하려면, 가장 적은 비용을 요청한 부서부터 지원해야 한다.
+# 2. 부서별 신청 금액 리스트(d)를 오름차순으로 정렬한다.
+# 3. 정렬된 리스트를 순회하며 현재 요청 금액을 잔여 budget과 비교한다.
+# 4. 요청 금액이 budget보다 작거나 같으면, answer(지원 부서 수)를 1 증가시키고 budget에서 해당 금액을 차감한다.
+# 5. budget이 0 미만이 되거나 리스트의 끝에 도달하면 반복을 멈추고 answer를 반환한다.
 
 def solution(d, budget):
     answer = 0
-    
     sorted_list = sorted(d)
-    new_list = []
     
     for i in range(len(sorted_list)):
         if (sorted_list[i] <= budget) and (0 <= budget):
-            new_list.append(sorted_list[i])
+            answer += 1
             budget -= int(sorted_list[i])
             
-    return len(new_list)
+    return answer
