@@ -3,7 +3,7 @@
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/120810?language=python3
 # 풀이: 두 숫자를 '%' 연산자를 이용하여 나머지를 결과값으로 리턴하였음.
 
-
+#2026 04 09 복습.
 def solution(num1, num2):
     answer = num1 % num2
     return answer

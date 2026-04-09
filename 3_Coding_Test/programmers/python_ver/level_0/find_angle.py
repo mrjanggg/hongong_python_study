@@ -4,6 +4,7 @@
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/120829
 # 풀이: 조건문을 이용하여 매개변수의 값이 해당하는 값과 일치한다면 미리 정한 값을 return 시킴.
 
+#2026 04 09 복습.
 def solution(angle):
     if 0 < angle < 90:
         answer = 1
