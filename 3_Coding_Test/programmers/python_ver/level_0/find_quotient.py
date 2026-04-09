@@ -3,6 +3,7 @@
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/120805
 # 풀이: num1을 num2로 나눈후 정수화인 int()함수로 몫 부분만 가져온 후 그 값을 return함.
 
+#2026 04 09 복습.
 def solution(num1, num2):
     answer = int(num1 / num2)
     return answer

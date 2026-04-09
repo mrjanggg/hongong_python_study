@@ -3,6 +3,7 @@
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/120807
 # 풀이: 두 숫자가 같으면 1을 반환하는, 그렇지 않다면 -1을 반환하는 조건문을 작성하고 그 최종값을 리턴하게하였음.
 
+#2026 04 09 복습.
 def solution(num1, num2):
     if num1 == num2:
         answer = 1

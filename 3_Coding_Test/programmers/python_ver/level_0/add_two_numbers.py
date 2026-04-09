@@ -3,6 +3,7 @@
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/120802
 # 풀이: num1을 num2로 합한 후, 그 값을 answer 변수 값으로 설정한 후, answer를 return 함.
 
+#2026 04 09 복습.
 def solution(num1, num2):
     answer = num1 + num2
     return answer
