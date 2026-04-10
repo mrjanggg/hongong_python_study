@@ -9,6 +9,8 @@
 -- 4. 첫 번째 조건은 `JOINED LIKE '2021%'`로, 가입 연도가 2021년인 회원을 찾습니다.
 -- 5. 두 번째 조건은 `(AGE >= 20 AND AGE <= 29)`로, 나이가 20세 이상 29세 이하인 회원을 찾습니다.
 
+-- 2026.04.10 금요일 복습 완료. 
+
 SELECT COUNT(*)
 FROM USER_INFO
 WHERE JOINED LIKE '2021%' AND ( AGE>=20 AND AGE<=29 )

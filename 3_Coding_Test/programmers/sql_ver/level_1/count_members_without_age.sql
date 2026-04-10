@@ -8,6 +8,8 @@
 -- 3. WHERE 절과 'IS NULL' 조건을 사용하여 AGE 컬럼의 값이 NULL인 행만 필터링합니다.
 -- 4. AS USERS를 사용하여 결과 컬럼의 이름을 'USERS'로 지정합니다.
 
+-- 2026.04.10 금요일 복습 완료. 
+
 SELECT count(USER_ID) AS USERS
     FROM USER_INFO
     WHERE AGE IS NULL
