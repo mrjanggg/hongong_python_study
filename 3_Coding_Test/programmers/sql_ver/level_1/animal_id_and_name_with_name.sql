@@ -8,6 +8,8 @@
 -- 3. `WHERE` 절을 사용하여 `NAME` 컬럼의 값이 NULL이 아닌 행, 즉 이름이 있는 동물만 필터링합니다. `IS NOT NULL` 조건을 사용합니다.
 -- 4. `ORDER BY` 절을 사용하여 `ANIMAL_ID`를 기준으로 오름차순으로 정렬합니다.
 
+-- 2026.04.10 금요일 복습 완료. 
+
 SELECT ANIMAL_ID, NAME
 FROM ANIMAL_INS
 WHERE NAME IS NOT NULL

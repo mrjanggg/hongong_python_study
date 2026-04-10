@@ -7,6 +7,8 @@
 -- 2. `FROM` 절을 사용하여 `ANIMAL_INS` 테이블에서 데이터를 가져옵니다.
 -- 3. `ORDER BY` 절을 사용하여 `ANIMAL_ID`를 기준으로 오름차순으로 정렬합니다.
 
+-- 2026.04.10 금요일 복습 완료. 
+
 SELECT ANIMAL_ID,NAME
 FROM ANIMAL_INS
 ORDER BY ANIMAL_ID

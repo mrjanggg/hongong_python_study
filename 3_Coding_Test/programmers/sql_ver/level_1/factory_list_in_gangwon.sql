@@ -8,6 +8,8 @@
 -- 3. `WHERE` 절에 `ADDRESS LIKE "%강원도%"`를 사용하여 주소에 '강원도'라는 문자열이 포함된 모든 공장을 필터링합니다.
 -- 4. `ORDER BY FACTORY_ID ASC`를 사용하여 공장 ID를 기준으로 오름차순으로 정렬합니다.
 
+-- 2026.04.10 금요일 복습 완료. 
+
 SELECT FACTORY_ID,
     FACTORY_NAME,
     ADDRESS

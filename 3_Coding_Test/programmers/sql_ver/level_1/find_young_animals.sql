@@ -8,6 +8,8 @@
 -- 3. `WHERE` 절에 `INTAKE_CONDITION` 컬럼의 값이 'Aged'가 아닌(`!= 'Aged'`) 행만 필터링하여 '어린' 동물을 찾습니다.
 -- 4. `ORDER BY` 절을 사용해 `ANIMAL_ID`를 기준으로 오름차순으로 정렬합니다.
 
+-- 2026.04.10 금요일 복습 완료. 
+
 SELECT ANIMAL_ID, NAME
 FROM ANIMAL_INS
 WHERE INTAKE_CONDITION != 'Aged'

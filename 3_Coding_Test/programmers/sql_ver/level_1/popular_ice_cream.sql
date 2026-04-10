@@ -8,6 +8,9 @@
 -- 3. `ORDER BY` 절에 `TOTAL_ORDER DESC`를 사용하여 총주문량을 기준으로 내림차순 정렬합니다.
 -- 4. `SHIPMENT_ID ASC`를 추가하여 총주문량이 같은 경우 출하 번호를 기준으로 오름차순 정렬합니다.
 
+
+-- 2026.04.10 금요일 복습 완료. 
+
 SELECT FLAVOR
 FROM FIRST_HALF
 ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID ASC;
