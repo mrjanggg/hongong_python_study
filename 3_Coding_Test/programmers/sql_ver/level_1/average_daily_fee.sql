@@ -8,6 +8,9 @@
 -- 3. `AS AVERAGE_FEE`를 사용하여 결과 컬럼의 이름을 'AVERAGE_FEE'로 지정합니다.
 -- 4. `WHERE CAR_TYPE = 'SUV'` 조건을 사용하여 'SUV' 차량만 필터링합니다.
 
+
+-- 2026.04.11 복습 완료.
+
 SELECT ROUND(AVG(DAILY_FEE), 0) AS AVERAGE_FEE
 FROM CAR_RENTAL_COMPANY_CAR
 WHERE CAR_TYPE = 'SUV';
