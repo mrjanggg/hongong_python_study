@@ -7,6 +7,9 @@
 -- 2. `FROM` 절에서 `FISH_INFO` 테이블을 지정합니다.
 -- 3. `WHERE` 절에 `LENGTH IS NULL` 조건을 사용하여 `LENGTH` 컬럼의 값이 NULL인 행만 필터링합니다.
 
+
+-- 2026.04.13 복습 완료.
+
 SELECT COUNT(*) AS FISH_COUNT
 FROM FISH_INFO
 WHERE LENGTH IS NULL
