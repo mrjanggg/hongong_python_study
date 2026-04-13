@@ -59,3 +59,42 @@
   SELECT DATEDIFF('2026-04-01', '2026-04-12'); 
   -- 결과: -11 (11일 지남)
   ```
+
+---
+
+## 4. UPPER('문자열')와 LOWER('문자열')
+- **설명:** 매개변수 '문자열'을 대문자(UPPER)나, 소문자(LOWER)로 바꿔주는 함수. 
+- **예시 코드:**
+  ```sql
+  SELECT UPPER(EMAIL) AS 이메일목록
+  FROM users;
+  -- 결과: ABC@GMAIL.COM, DEF@GMAIL.COM (모두 대문자로 전환됨)
+
+  SELECT LOWER(EMAIL) AS 이메일목록
+  FROM users;
+  -- 결과: abc@gmail.com, def@gmail.com (모두 소문자로 전환됨)
+  ```
+
+---
+
+## 5. CASE문 :(CASE WHEN THEN END)
+- **설명:** CASE문으로 각각의 조건에 대한 결과를 만들 수 있음.(아래 예시 코드 참고)
+- **예시 코드:**
+  ```sql
+  --CASE 
+  --  WHEN 조건1 THEN 결과1
+  --  WHEN 조건2 THEN 결과2
+  --  ELSE 모든 조건에 해당 안 될 때의 결과
+  --END
+
+  SELECT NAME,
+      CASE 
+          WHEN INTAKE_CONDITION = 'Aged' THEN '노령'
+          WHEN INTAKE_CONDITION = 'Sick' THEN '아픔'
+          ELSE '정상'
+      END AS 상태구분-- (새로운 컬럼이름)
+  FROM ANIMAL_INS;
+  ```
+
+---
+
