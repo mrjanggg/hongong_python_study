@@ -98,3 +98,38 @@
 
 ---
 
+## 6. IS NULL / '='의 차이.
+- **설명:** 어떠한 컬럼이 NULL(값이 없는지) 확인할 때는 'IS NULL'을 사용하며, 값이 일치하는지는 '='을 사용한다.(아래 예시 참고)
+            IS 뒤에는 NULL만 올 수 있다.(NOT NULL도 가능)
+- **예시 코드:**
+  ```sql
+  SELECT * FROM FOOD_WAREHOUSE WHERE FREEZER_YN = NULL;
+  -- 아무것도 조회되지 않습니다. (문법 오류는 아니지만 결과가 안 나옴)
+
+  SELECT * FROM FOOD_WAREHOUSE WHERE FREEZER_YN IS NULL;
+  -- 원하는 대로 NULL인 행을 정확히 찾아줍니다.
+
+  SELECT NAME, SPECIES
+  FROM ANIMAL_INS
+  WHERE SPECIES = 'DOG';
+  -- 결과: 종이 'DOG'인 모든 동물의 이름과 종을 보여줍니다.
+
+  -- WHERE SPECIES IS 'DOG';
+  -- 결과: [SQL Error] 'IS' 뒤에는 NULL만 올 수 있다는 에러가 발생합니다.
+  ```
+
+---
+
+## 7. IN 연산자
+- **설명:** IN (컬럼1,컬럼2 ...)에 일치하는 값이 있는지를 알려준다.
+- **예시 코드:**
+  ```sql
+  SELECT 컬럼명
+  FROM 테이블명
+  WHERE '컬럼명' 혹은 '값' IN (값1, 값2, 값3, ...);
+  --해당 컬럼명 혹은 값이 IN 연산자안에 있으면 True가 됨.
+  ```
+
+---
+
+

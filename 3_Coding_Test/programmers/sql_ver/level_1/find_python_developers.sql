@@ -8,6 +8,9 @@
 -- 3. `WHERE` 절에서 `IN` 연산자를 사용하여, 리스트의 컬럼(SKILL_1, SKILL_2, SKILL_3) 값 중 하나라도 `'Python'`과 정확히 일치하는 행을 필터링합니다. (참고: 이전 LIKE 방식보다 코드가 간결하지만, 컬럼에 'Advanced Python'과 같이 추가 문자가 있으면 찾지 못할 수 있습니다.)
 -- 4. `ORDER BY ID ASC`를 사용하여 ID를 기준으로 오름차순 정렬합니다.
 
+
+-- 2026.04.14 복습 완료.
+
 SELECT ID,EMAIL,FIRST_NAME,LAST_NAME
 FROM DEVELOPER_INFOS
 WHERE 'Python' IN (SKILL_1, SKILL_2, SKILL_3)
