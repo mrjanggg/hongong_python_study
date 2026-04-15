@@ -7,5 +7,8 @@
 -- 2. `AS MAX_PRICE`를 사용하여 결과 컬럼의 이름을 'MAX_PRICE'로 지정합니다.
 -- 3. `FROM` 절에서 `PRODUCT` 테이블을 지정합니다.
 
+
+-- 2026.04.15 복습 완료.
+
 SELECT MAX(PRICE) AS MAX_PRICE
 FROM PRODUCT

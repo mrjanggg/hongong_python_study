@@ -7,6 +7,9 @@
 -- 2. `FROM` 절을 사용하여 `ANIMAL_INS` 테이블을 지정합니다.
 -- 3. `ORDER BY ANIMAL_ID ASC`를 사용하여 동물의 ID를 기준으로 오름차순 정렬합니다.
 
+
+-- 2026.04.15 복습 완료.
+
 SELECT *
 FROM ANIMAL_INS
-ORDER BY ANIMAL_ID ASC
+ORDER BY ANIMAL_ID;

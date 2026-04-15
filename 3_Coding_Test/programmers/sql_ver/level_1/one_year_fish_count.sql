@@ -7,6 +7,9 @@
 -- 2. `FROM` 절에서 `FISH_INFO` 테이블을 지정합니다.
 -- 3. `WHERE` 절에 `YEAR(TIME) = 2021` 조건을 사용하여 `TIME` 컬럼(날짜/시간)에서 **YEAR() 함수**를 이용해 연도만 추출하고, 그 값이 2021과 일치하는 행만 필터링합니다. 이 방법은 문자열 LIKE 검색보다 더 명확하고 효율적입니다.
 
+
+-- 2026.04.15 복습 완료.
+
 SELECT COUNT(*) AS FISH_COUNT
 FROM FISH_INFO
 WHERE YEAR(TIME) = 2021;

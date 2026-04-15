@@ -7,5 +7,8 @@
 -- 2. `CONCAT()` 함수를 사용하여 구한 최댓값 뒤에 'cm' 문자열을 붙여줍니다.
 -- 3. `AS MAX_LENGTH`를 사용하여 결과 컬럼의 이름을 'MAX_LENGTH'로 지정합니다.
 
+
+-- 2026.04.15 복습 완료.
+
 SELECT concat(max(LENGTH),'cm') AS MAX_LENGTH
 FROM FISH_INFO

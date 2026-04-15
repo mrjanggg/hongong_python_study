@@ -6,14 +6,8 @@
 -- 1. `MAX()` 집계 함수를 사용하여 `DATETIME` 컬럼의 최댓값(가장 늦은 날짜와 시간)을 구합니다.
 -- 2. `FROM` 절에서 `ANIMAL_INS` 테이블을 지정합니다. (문제에서 별도의 컬럼명을 요구하지 않으므로 AS는 생략합니다.)
 
+
+-- 2026.04.15 복습 완료.
+
 SELECT MAX(DATETIME)
 FROM ANIMAL_INS;
-
-
-/* 아래 코드는 내가 기존에 풀었던 방식. 논리적으로 옳음.
-
-SELECT DATETIME
-FROM ANIMAL_INS
-ORDER BY DATETIME DESC
-LIMIT 1
-*/

@@ -8,6 +8,9 @@
 -- 3. `WHERE` 절에 `LIKE '%2022-10%'` 조건을 사용하여 게시글의 `CREATED_DATE`가 2022년 10월인 행만 필터링합니다.
 -- 4. `ORDER BY` 절에 댓글 작성일(`USED_GOODS_REPLY.CREATED_DATE`)은 오름차순(`ASC`)으로, 게시글 제목(`USED_GOODS_BOARD.TITLE`)은 오름차순(`ASC`)으로 정렬합니다.
 
+
+-- 2026.04.15 복습 완료.
+
 SELECT
     USED_GOODS_BOARD.TITLE,
     USED_GOODS_BOARD.BOARD_ID,
