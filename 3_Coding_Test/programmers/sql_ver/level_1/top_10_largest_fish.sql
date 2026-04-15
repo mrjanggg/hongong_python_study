@@ -9,6 +9,9 @@
 --    - 두 번째 기준: `ID ASC` (길이가 같을 경우 ID를 기준으로 오름차순 정렬)
 -- 3. `LIMIT 10`을 사용하여 정렬된 결과 중 상위 10개의 레코드만 선택합니다.
 
+
+-- 2026.04.15 복습 완료.
+
 SELECT ID, LENGTH
 FROM FISH_INFO
 ORDER BY LENGTH DESC , ID ASC

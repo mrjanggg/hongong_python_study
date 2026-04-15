@@ -8,6 +8,9 @@
 -- 3. `WHERE` 절에 `options LIKE '%네비게이션%'`를 사용하여 options 컬럼 안에 '네비게이션' 문자열이 포함된 모든 행을 필터링합니다. `%` 와일드카드를 사용해 문자열의 앞뒤 어느 곳에 있어도 찾을 수 있게 합니다.
 -- 4. `ORDER BY car_id DESC`를 사용하여 자동차 ID를 기준으로 내림차순으로 정렬합니다.
 
+
+-- 2026.04.15 복습 완료.
+
 SELECT *
 FROM CAR_RENTAL_COMPANY_CAR
 WHERE options LIKE '%네비게이션%'

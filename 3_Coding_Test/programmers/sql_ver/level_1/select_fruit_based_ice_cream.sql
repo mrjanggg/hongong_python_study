@@ -10,6 +10,9 @@
 --    - 총주문량 조건: TOTAL_ORDER가 3000 이상인지 확인합니다.
 -- 4. ORDER BY 절에서 TOTAL_ORDER를 내림차순(DESC)으로 정렬하여 총주문량이 큰 순서대로 결과를 출력합니다.
 
+
+-- 2026.04.15 복습 완료.
+
 SELECT FIRST_HALF.FLAVOR
 FROM FIRST_HALF
     INNER JOIN ICECREAM_INFO

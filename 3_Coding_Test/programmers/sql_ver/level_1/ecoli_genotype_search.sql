@@ -10,11 +10,11 @@
 -- 3. 두 조건을 AND로 결합하여 최종적으로 조건을 만족하는 레코드의 개수(COUNT(*))를 센다.
 -- 4. 결과 컬럼명을 COUNT로 지정한다.
 
+-- 2026.04.15 복습 완료.
+
 SELECT
-    COUNT(*) AS COUNT
+    COUNT(*) AS COUNT
 FROM
-    ECOLI_DATA
+    ECOLI_DATA
 WHERE
-    (NOT(2 & GENOTYPE)) 
-    AND 
-    ((1 & GENOTYPE) OR (4 & GENOTYPE));
+    (NOT(2 & GENOTYPE)) AND ((1 & GENOTYPE) OR (4 & GENOTYPE))

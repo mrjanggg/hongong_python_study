@@ -9,6 +9,9 @@
 --    - 첫 번째 기준: `NAME ASC` (이름 오름차순)
 --    - 두 번째 기준: `DATETIME DESC` (보호 시작일 내림차순)
 
+
+-- 2026.04.15 복습 완료.
+
 SELECT ANIMAL_ID, NAME, DATETIME
 FROM ANIMAL_INS
 ORDER BY NAME ASC, DATETIME DESC;
