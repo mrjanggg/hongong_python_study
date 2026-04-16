@@ -8,6 +8,9 @@
 -- 3. `COUNT(*)` 함수를 사용하여 각 그룹(카테고리)에 속한 상품의 개수를 계산하고, `AS PRODUCTS`로 컬럼명을 지정합니다.
 -- 4. `ORDER BY CATEGORY ASC`를 사용하여 카테고리 코드를 기준으로 오름차순 정렬합니다.
 
+
+--2026.04.16 복습 완료.
+
 SELECT
     SUBSTRING(PRODUCT_CODE, 1, 2) AS CATEGORY,
     COUNT(*) AS PRODUCTS

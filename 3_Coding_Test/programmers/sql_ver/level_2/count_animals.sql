@@ -7,5 +7,8 @@
 -- 2. `AS count`를 사용하여 결과 컬럼의 이름을 'count'로 지정합니다.
 -- 3. `FROM` 절에서 `ANIMAL_INS` 테이블을 지정합니다.
 
+
+--2026.04.16 복습 완료.
+
 SELECT count(ANIMAL_ID) AS count
 FROM ANIMAL_INS

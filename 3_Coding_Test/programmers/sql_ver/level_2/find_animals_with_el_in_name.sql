@@ -10,13 +10,15 @@
 --    - 이름 포함 조건: `lower(NAME) LIKE lower('%el%')`를 사용하여 이름이 'el'을 포함하는지 검사합니다. 이때 `lower()` 함수를 사용해 대소문자를 무시하고 검색을 수행합니다.
 -- 4. `ORDER BY NAME ASC`를 사용하여 이름을 기준으로 오름차순 정렬합니다.
 
+
+--2026.04.16 복습 완료.
+
 SELECT 
-    ANIMAL_ID, 
+    ANIMAL_ID,
     NAME
 FROM 
     ANIMAL_INS
 WHERE 
-    lower(NAME) LIKE lower('%el%') AND
+    lower(NAME) LIKE '%el%' AND
     ANIMAL_TYPE = 'Dog'
-ORDER BY 
-    NAME ASC;
+ORDER BY NAME ASC;

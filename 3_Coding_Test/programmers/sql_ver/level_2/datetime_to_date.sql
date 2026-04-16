@@ -9,6 +9,9 @@
 -- 4. `FROM` 절에서 `ANIMAL_INS` 테이블을 지정합니다.
 -- 5. `ORDER BY ANIMAL_ID`를 사용하여 결과를 정렬합니다.
 
+
+--2026.04.16 복습 완료.
+
 SELECT
     ANIMAL_ID,
     NAME,

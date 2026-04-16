@@ -7,6 +7,10 @@
 -- 2. `FROM` 절에서 `ANIMAL_INS` 테이블을 지정합니다.
 -- 3. `WHERE NAME IS NOT NULL` 조건을 사용하여 이름이 기록되지 않은(NULL) 행은 제외합니다.
 
-SELECT COUNT(DISTINCT NAME) AS count
-FROM ANIMAL_INS
-WHERE NAME IS NOT NULL;
+
+-- 2026.04.16 복습 완료.
+
+SELECT 
+    COUNT(DISTINCT NAME) AS count
+FROM 
+    ANIMAL_INS;

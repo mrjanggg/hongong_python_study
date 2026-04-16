@@ -8,14 +8,16 @@
 -- 3. `HAVING COUNT(NAME) >= 2`를 사용하여 그룹 중 개수(COUNT)가 2 이상인 그룹만 필터링합니다. (그룹화된 결과에 조건을 적용할 때는 WHERE 대신 HAVING을 사용해야 합니다.)
 -- 4. `ORDER BY NAME ASC`를 사용하여 이름의 오름차순으로 결과를 정렬합니다.
 
+
+--2026.04.16 복습 완료.
+
 SELECT
-    NAME,
-    count(name) AS COUNT
+    NAME,count(NAME) AS COUNT
 FROM
     ANIMAL_INS
 GROUP BY
     NAME
-HAVING
+HAVING 
     count(NAME) >= 2
 ORDER BY
     NAME ASC;

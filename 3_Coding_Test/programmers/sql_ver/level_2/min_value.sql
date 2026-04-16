@@ -8,14 +8,15 @@
 -- 3. 서브쿼리 내에서 `MIN(DATETIME)`을 사용하여 `ANIMAL_INS` 테이블의 가장 이른 시각(최솟값)을 구합니다.
 -- 4. 이 방식을 통해 가장 먼저 들어온 동물의 모든 레코드 정보를 정확히 조회합니다.
 
-SELECT
+
+--2026.04.16 복습 완료.
+
+SELECT 
     DATETIME AS 시간
-FROM
+FROM 
     ANIMAL_INS
-WHERE
+WHERE 
     DATETIME = (
-        SELECT
-            MIN(DATETIME)
-        FROM
-            ANIMAL_INS
+        SELECT MIN(DATETIME)
+        FROM ANIMAL_INS
     );
