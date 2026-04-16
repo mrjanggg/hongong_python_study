@@ -7,6 +7,9 @@
 -- 2. `FROM` 절에서 `ITEM_INFO` 테이블을 지정합니다.
 -- 3. `WHERE` 절에서 `RARITY = 'LEGEND'` 조건을 사용하여 희귀도가 'LEGEND'인 아이템만 필터링합니다.
 
+
+--2026.04.16 복습 완료.
+
 SELECT
     SUM(PRICE) AS TOTAL_PRICE
 FROM

@@ -8,14 +8,10 @@
 -- 3. 서브쿼리(`SELECT MAX(PRICE) FROM FOOD_PRODUCT`)를 통해 `FOOD_PRODUCT` 테이블의 최댓값(가장 비싼 가격)을 먼저 구합니다.
 -- 4. 결과적으로, 가격이 최댓값과 동일한 모든 상품의 정보를 반환합니다.
 
-SELECT
-    *
-FROM
-    FOOD_PRODUCT
-WHERE
-    PRICE = (
-        SELECT
-            MAX(PRICE)
-        FROM
-            FOOD_PRODUCT
-    );
+
+--2026.04.16 복습 완료.
+
+SELECT *
+FROM FOOD_PRODUCT
+WHERE PRICE = (SELECT MAX(PRICE)
+              FROM FOOD_PRODUCT);
