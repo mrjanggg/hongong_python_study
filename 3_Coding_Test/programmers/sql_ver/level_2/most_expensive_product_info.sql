@@ -1,3 +1,4 @@
+-- 파일명: most_expensive_product_info.sql
 -- 문제: 프로그래머스 Lv.2 '가격이 제일 비싼 식품의 정보 출력하기'
 -- 설명: 식품 테이블(FOOD_PRODUCT)에서 가격이 제일 비싼 식품의 모든 정보를 조회하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/131115
@@ -9,7 +10,7 @@
 -- 4. 결과적으로, 가격이 최댓값과 동일한 모든 상품의 정보를 반환합니다.
 
 
---2026.04.16 복습 완료.
+-- 2026.04.16 복습 완료.
 
 SELECT *
 FROM FOOD_PRODUCT
