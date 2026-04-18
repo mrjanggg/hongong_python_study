@@ -8,14 +8,17 @@
 -- 3. `SELECT MCDP_CD AS 진료과코드, COUNT(*) AS 5월예약건수`를 사용하여 진료과 코드와 각 그룹의 예약 건수를 계산하고 별칭을 지정합니다.
 -- 4. `ORDER BY` 절을 사용하여 예약 건수 오름차순(`ASC`), 진료과 코드 오름차순(`ASC`) 순서로 정렬합니다.
 
+
+--2026.04.18 복습 완료.
+
 SELECT
     MCDP_CD AS 진료과코드,
     COUNT(*) AS 5월예약건수
 FROM
     APPOINTMENT
 WHERE
-    APNT_YMD LIKE '2022-05%'
+    APNT_YMD LIKE '%2022-05%'
 GROUP BY
-    진료과코드
+    MCDP_CD
 ORDER BY
     5월예약건수 ASC, 진료과코드 ASC;
