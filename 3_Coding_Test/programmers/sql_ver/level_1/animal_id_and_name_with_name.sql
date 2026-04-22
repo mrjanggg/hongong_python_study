@@ -1,6 +1,6 @@
 -- 파일명: animal_id_and_name_with_name.sql
 -- 문제: 프로그래머스 Lv.1 '이름이 있는 동물의 아이디'
--- 설명: 동물의 이름이 NULL이 아닌, 즉 이름이 있는 동물의 ANIMAL_ID와 NAME을 ANIMAL_ID 순으로 조회하는 SQL문을 작성하는 문제입니다.
+-- 설명: 동물의 이름이 NULL이 아닌, 즉 이름이 있는 동물의 ANIMAL_ID를 ANIMAL_ID 순으로 조회하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/59407
 
 -- 풀이:
@@ -11,7 +11,7 @@
 
 -- 2026.04.10 금요일 복습 완료. 
 
-SELECT ANIMAL_ID, NAME
+SELECT ANIMAL_ID
 FROM ANIMAL_INS
 WHERE NAME IS NOT NULL
-ORDER BY ANIMAL_ID
+ORDER BY ANIMAL_ID;
