@@ -1,3 +1,4 @@
+-- 파일명: select_cars_with_specific_option.sql
 -- 문제: 프로그래머스 Lv.1 '특정 옵션이 포함된 자동차 리스트 구하기'
 -- 설명: 자동차 대여 회사 테이블(CAR_RENTAL_COMPANY_CAR)에서 '네비게이션' 옵션이 포함된 자동차의 모든 정보를 CAR_ID 기준 내림차순으로 조회하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/157343

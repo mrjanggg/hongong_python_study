@@ -1,3 +1,4 @@
+-- 파일명: popular_ice_cream.sql
 -- 문제: 프로그래머스 Lv.1 '인기있는 아이스크림'
 -- 설명: 아이스크림의 총주문량을 기준으로 내림차순 정렬하고, 총주문량이 같다면 출하 번호를 기준으로 오름차순 정렬하여 아이스크림 맛을 조회하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/133024

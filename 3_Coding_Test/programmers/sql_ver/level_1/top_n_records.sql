@@ -1,3 +1,4 @@
+-- 파일명: top_n_records.sql
 -- 문제: 프로그래머스 Lv.2 '상위 n개 레코드'
 -- 설명: 동물 보호소에 가장 먼저 들어온 동물의 이름을 한 마리만 조회하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/59405

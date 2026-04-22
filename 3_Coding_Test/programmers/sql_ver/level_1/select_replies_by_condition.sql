@@ -1,3 +1,4 @@
+-- 파일명: select_replies_by_conditional.sql
 -- 문제: 프로그래머스 Lv.1 '조건에 부합하는 중고거래 댓글 조회하기'
 -- 설명: 2022년 10월에 작성된 게시글에 달린 댓글들을 댓글 작성일과 게시글 제목 순으로 정렬하여 조회하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/164673

@@ -1,3 +1,4 @@
+-- 파일명: top_10_largest_fish.sql
 -- 문제: 프로그래머스 Lv.1 '가장 큰 물고기 10마리 구하기'
 -- 설명: 물고기 정보 테이블(FISH_INFO)에서 가장 큰 물고기 10마리의 ID와 길이를 길이 기준 내림차순, ID 기준 오름차순으로 조회하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/298517

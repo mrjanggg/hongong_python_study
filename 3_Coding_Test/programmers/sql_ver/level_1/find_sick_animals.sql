@@ -1,3 +1,4 @@
+-- 파일명: find_sick_animals.sql
 -- 문제: 프로그래머스 Lv.1 '아픈 동물 찾기'
 -- 설명: 동물 보호소에 들어온 동물 중 아픈 동물의 ID와 이름을 조회하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/59036
