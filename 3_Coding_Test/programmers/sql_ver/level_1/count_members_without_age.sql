@@ -1,3 +1,4 @@
+-- 파일명: count_members_without_age.sql
 -- 문제: 프로그래머스 Lv.1 '나이 정보가 없는 회원 수 구하기'
 -- 설명: USER_INFO 테이블에서 AGE(나이) 정보가 NULL인 회원의 수를 구하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/131528

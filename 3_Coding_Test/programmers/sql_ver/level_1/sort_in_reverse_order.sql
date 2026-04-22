@@ -1,3 +1,4 @@
+-- 파일명: sort_in_reverse_order.sql
 -- 문제: 프로그래머스 Lv.1 '역순 정렬하기'
 -- 설명: 동물 보호소에 들어온 모든 동물의 이름과 보호 시작일을 ANIMAL_ID 역순으로 조회하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/59035

@@ -1,3 +1,4 @@
+-- 파일명: factory_list_in_gangwon.sql
 -- 문제: 프로그래머스 Lv.1 '강원도에 위치한 생산공장 목록 출력하기'
 -- 설명: 식품 공장 테이블(FOOD_FACTORY)에서 주소(ADDRESS)가 '강원도'에 해당하는 공장의 ID, 이름, 주소를 FACTORY_ID 순으로 조회하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/131112

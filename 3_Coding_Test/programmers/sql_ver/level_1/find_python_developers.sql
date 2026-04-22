@@ -1,3 +1,4 @@
+-- 파일명: find_python_developers.sql
 -- 문제: 프로그래머스 Lv.1 'Python 개발자 찾기'
 -- 설명: DEVELOPER_INFOS 테이블에서 Python 스킬을 가진 개발자의 ID, 이메일, 이름 등을 ID 순으로 조회하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/276013

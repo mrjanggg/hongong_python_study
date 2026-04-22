@@ -1,3 +1,4 @@
+-- 파일명: max_value.sql
 -- 문제: 프로그래머스 Lv.1 '최댓값 구하기'
 -- 설명: 동물 보호소에 가장 늦게 들어온 시각(DATETIME)을 조회하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/59415

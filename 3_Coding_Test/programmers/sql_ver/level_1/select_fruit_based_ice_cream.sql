@@ -1,3 +1,4 @@
+-- 파일명: select_fruit_based_ice_cream.sql
 -- 문제: 프로그래머스 Lv.1 '과일로 만든 아이스크림 고르기'
 -- 설명: 아이스크림의 상반기 총주문량이 3,000보다 높고, 주 성분이 '과일'인 아이스크림의 맛을 총주문량이 큰 순서대로 조회하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/133025

@@ -1,3 +1,4 @@
+-- 파일명: count_members_by_condition.sql
 -- 문제: 프로그래머스 Lv.1 '조건에 맞는 회원수 구하기'
 -- 설명: 2021년에 가입한 회원 중 나이가 20세 이상 29세 이하인 회원의 수를 구하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/131535

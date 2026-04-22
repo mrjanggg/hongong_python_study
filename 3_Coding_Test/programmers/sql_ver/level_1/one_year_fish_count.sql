@@ -1,3 +1,4 @@
+-- 파일명: one_year_fish_count.sql
 -- 문제: 프로그래머스 Lv.1 '한 해에 잡은 물고기 수 구하기'
 -- 설명: 2021년에 잡은 물고기의 총 개수를 구하는 SQL문을 작성하는 문제입니다.
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/298516
