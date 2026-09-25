@@ -3,17 +3,10 @@
 #       답이 항상 존재함은 증명될 수 있습니다.
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/87389
 
-# 풀이: n은 최소 3부터 시작한다고 했으니, 자연수 x는 1일 때 항상 나머지가 0이므로 의미가 없어지기 때문에 2부터 시작한다고 설정했다.
-#       그 후, '%'연산자를 이용하여 나머지가 1이 아니라면 x를 1씩 증가시켜, 나머지가 1이 될 때 만족하는 x를 정답 answer로 리턴한다.
-
+# 풀이: for문의 매개변수 i를 1부터 n-1까지 n과 나누었을 때, 나머지가 1이 되는지 조건문(if 문)으로 확인하며, 조건이 맞아떨어질 때 그 즉시 반환한다.
 
 def solution(n):
-    answer = 0
-    x = 2
     
-    while (n % x) != 1:
-        x += 1
-    
-    answer = x
-    
-    return answer
+    for i in range(1, n):
+        if (n % i) == 1:
+            return i

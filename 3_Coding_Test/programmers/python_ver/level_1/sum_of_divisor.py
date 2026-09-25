@@ -6,12 +6,11 @@
 #       나누어 떨어진다면 answer에 i를 더해가는 것을 n까지 반복한다.
 #       그 후 최종합을 return한다.
 
-
 def solution(n):
     answer = 0
     
-    for i in range(1, n + 1):
-        if(n % i) == 0:
+    for i in range(1, n+1):
+        if (n % i) == 0:
             answer += i
-
+            
     return answer

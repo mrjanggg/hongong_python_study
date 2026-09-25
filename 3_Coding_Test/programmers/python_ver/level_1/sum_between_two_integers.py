@@ -3,12 +3,15 @@
 #       예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12912
 
-# 풀이: a와 b가 같다면 아무거나 반환하고, 다르다면 sum() 함수를 이용하여, range()함수 즉, 범위를 설정한다.
-#       즉, a와 b 중 최소값을 나타내는 min()과, 최댓값을 나타내는 max()함수를 이용하여 range(min(), max(), 1)을 활용한다.
-
+# 풀이: min()함수와 max()함수를 이용하여, 두 매개변수 a b 중 최솟값과 최댓값을 새로운 변수에 넣고,
+#       for문을 돌려 sum에 하나씩 더한다. 단, 최댓값은 range()범위를 충족시키기 위하여 1을 더해야한다.
 
 def solution(a, b):
-    if a == b:
-        return a
-    else:
-        return sum(range(min(a, b), max(a, b) + 1, 1))
+    sum = 0
+    min_int = min(a,b)
+    max_int = max(a,b)
+    
+    for i in range(min_int, max_int + 1):
+        sum += i
+    
+    return sum

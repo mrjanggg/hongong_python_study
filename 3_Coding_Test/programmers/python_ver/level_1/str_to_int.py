@@ -4,7 +4,5 @@
 
 # 풀이: 매개변수 s는 문자열이라고 했고, 문자열이나 실수를 '정수형'으로 바꿔주는 int()함수를 이용하여 그 값을 return함.
 
-
 def solution(s):
-    answer = int(s)
-    return answer
+    return int(s)
