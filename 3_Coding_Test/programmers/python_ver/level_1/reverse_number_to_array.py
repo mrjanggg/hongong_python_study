@@ -4,21 +4,18 @@
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12932
 
 # 풀이:
-# 1. 자연수 n을 인덱싱이 가능한 문자열(str_n)로 변환한다.
-# 2. 결과 리스트(answer)를 생성한다.
-# 3. 문자열의 가장 마지막 인덱스(len(str_n) - 1)부터 0까지 역순으로 순회한다.
-# 4. 각 자릿수(문자)를 정수형(int)으로 변환하여 리스트에 추가(append)한다.
+# 1. 반환할 빈 리스트(answer)를 초기화한다.
+# 2. n이 0보다 큰 동안 반복하며 다음 연산을 수행한다.
+#    - n % 10 연산으로 현재 일의 자리 숫자를 추출해 answer에 추가(append)한다.
+#      (자연스럽게 맨 끝자리부터 리스트에 차례대로 쌓여 뒤집힌 순서가 된다.)
+#    - n // 10 연산으로 추출이 끝난 일의 자리를 제거하고 다음 자릿수를 당긴다.
+# 3. 모든 자릿수가 소진(n == 0)되어 반복이 끝나면 뒤집힌 배열(answer)을 반환한다.
 
 def solution(n):
-    	
-    #변수값 초기 세팅
-    answer = [ ]
+    answer = []
     
-    # 숫자를 문자열로 변환
-    str_n = str(n)
+    while(n > 0):
+        answer.append(n%10)
+        n = n//10
     
-    # 문자열로 된 배열의 역순을 answer에 저장.
-    for i in range(len(str_n) - 1, 0 - 1, -1):
-        answer.append(int(str_n[i]))
-
     return answer

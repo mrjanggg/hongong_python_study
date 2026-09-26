@@ -9,16 +9,13 @@
 -- 3. FROM 절에서 FOOD_WAREHOUSE 테이블을 지정합니다.
 -- 4. WHERE 절에 LIKE 키워드와 '%' 와일드카드를 사용하여 ADDRESS가 '경기도'로 시작하는 행만 필터링합니다.
 
-
--- 2026.04.13 복습 완료.
-
-SELECT 
-    WAREHOUSE_ID,
-    WAREHOUSE_NAME,
-    ADDRESS,
-    (CASE
-        WHEN FREEZER_YN IS NULL THEN 'N'
-        ELSE FREEZER_YN
-    END) AS FREEZER_YN
+SELECT WAREHOUSE_ID,
+        WAREHOUSE_NAME,
+        ADDRESS,
+        CASE
+            WHEN FREEZER_YN IS NULL THEN 'N'
+            ELSE FREEZER_YN
+        END AS FREEZER_YN
 FROM FOOD_WAREHOUSE
-WHERE WAREHOUSE_NAME LIKE '%경기%'
+WHERE ADDRESS LIKE '경기도%'
+ORDER BY WAREHOUSE_ID

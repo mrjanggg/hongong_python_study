@@ -9,9 +9,7 @@
 -- 3. `WHERE` 절에서 `NAME` 컬럼의 값이 `NULL`인 데이터만 필터링하기 위해 `IS NULL` 연산자를 사용합니다.
 -- 4. 기본적으로 요구되는 정렬 기준에 맞춰 `ANIMAL_ID`를 기준으로 조회합니다.
 
--- 2026.04.22 수요일 복습 완료. 
-
 SELECT ANIMAL_ID
 FROM ANIMAL_INS
 WHERE NAME IS NULL
-ORDER BY ANIMAL_ID ASC;
+ORDER BY ANIMAL_ID;
