@@ -5,12 +5,5 @@
 # 풀이: len()함수를 이용하여 매개변수의 길이를 구한 후, sum()함수를 이용하여 매개변수의 값을 모두 더했다.
 #       그 후, 모든 합을 길이로 나누면 평균이 구해지고 그 값을 반환하도록 했다.
 
-
 def solution(arr):
-
-    arr_len = len(arr)
-    arr_sum = sum(arr)
-        
-    answer = arr_sum / arr_len
-    
-    return answer
+    return sum(arr) / len(arr)

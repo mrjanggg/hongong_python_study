@@ -4,22 +4,18 @@
 #       자연수 x를 입력받아 x가 하샤드 수인지 아닌지 검사하는 함수, solution을 완성해주세요.
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12947
 
-# 풀이: 
-#   1. 정수 x를 문자열로 취한 후, 그 문자열 개별들을 각각 list화 시킨다.
-#   2. 그 후, 개별화 된 리스트의 요소들을 for문을 활용하여 하나씩 다시 정수화 시킨다.(리스트 요소들의 합을 알기 위하여)
-#   3. 그 후, 리스트의 요소들을 다 더하는 함수 sum()을 활용하여 새로운 변수에 저장한 뒤,
-#   4. 그 저장된 새로운 변수가 원래의 x와 나누어 떨어지는지를 조건문으로 검토한다.
+# 풀이:
+# 1. 자릿수의 합을 누적할 변수(sum_list)를 0으로 초기화한다.
+# 2. 정수 x를 문자열 str(x)로 변환하여 각 자릿수(문자)를 한 글자씩 for문으로 순회한다.
+#    (문자열은 반복 가능한 객체이므로 별도의 list 변환 없이 바로 순회 가능)
+# 3. 각 문자 i를 정수형(int)으로 변환하여 sum_list에 누적 합산한다.
+# 4. 원래의 수 x가 자릿수 합(sum_list)으로 나누어떨어지는지 확인하여,
+#    나머지가 0이면 True, 아니면 False를 반환한다. (비교 연산식 자체를 바로 반환)
 
 def solution(x):
-    answer = True
+    sum_list = 0
     
-    list_x = list(str(x))
+    for i in str(x):
+        sum_list += int(i)
     
-    for i in range(len(list_x)):
-        list_x[i] = int(list_x[i])
-        
-    sum_list_x = sum(list_x)
-    if x % sum_list_x == 0:
-        return True
-    else:
-        return False
+    return (x % sum_list) == 0

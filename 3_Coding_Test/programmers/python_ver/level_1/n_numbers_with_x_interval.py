@@ -10,7 +10,6 @@
 # 4. 반복이 완료된 최종 리스트를 반환한다.
 
 def solution(x, n):
-    
     answer = []
     
     for i in range(1, n+1):

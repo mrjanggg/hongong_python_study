@@ -8,7 +8,4 @@
 #   2. 0~9까지의 합인 45에서 그 해당하는 값을 뺀 후 return하면 된다.
 
 def solution(numbers):
-
-    answer = 45 - sum(numbers)
-    
-    return answer
+    return 45-sum(numbers)

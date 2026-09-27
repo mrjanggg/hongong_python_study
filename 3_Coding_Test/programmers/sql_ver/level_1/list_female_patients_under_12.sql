@@ -9,13 +9,14 @@
 -- 3. `WHERE` 절에서 나이가 12세 이하(`AGE <= 12`)이고 성별이 여자(`GEND_CD = 'W'`)인 조건을 설정합니다.
 -- 4. `ORDER BY` 절을 통해 나이 기준 내림차순(`DESC`), 나이가 같다면 이름 기준 오름차순(`ASC`)으로 정렬합니다.
 
--- 2026.04.22 수요일 복습 완료. 
-
-SELECT PT_NAME, PT_NO, GEND_CD, AGE,
-    CASE
-        WHEN TLNO IS NULL THEN 'NONE'
-        ELSE TLNO
-    END AS TLNO
+SELECT PT_NAME,
+        PT_NO,
+        GEND_CD,
+        AGE,
+        CASE
+            WHEN TLNO IS NULL THEN 'NONE'
+            ELSE TLNO
+        END AS TLNO
 FROM PATIENT
 WHERE (AGE <= 12) AND (GEND_CD = 'W')
 ORDER BY AGE DESC, PT_NAME ASC;

@@ -9,7 +9,6 @@
 #       그 다음, 리스트를 문자열로 바꿀 때, join()함수를 활용하여 해당 원소만 문자열로 바꾼후,
 #       마지막으로, 문자열을 int()함수를 사용하여 다시 숫자로 바꾸고 return한다.
 
-
 def solution(n):
     list_number = list(str(n))
     
@@ -20,5 +19,5 @@ def solution(n):
     
     # 합쳐진 문자열을 최종적으로 숫자로 변환합니다.
     answer = int(combined_str)
-    
+
     return answer

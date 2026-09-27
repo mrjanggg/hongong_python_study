@@ -4,20 +4,21 @@
 #       실제 정수들의 합을 구하여 return 하도록 solution 함수를 완성해주세요.
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/76501
 
-# 풀이: 
-#   1. 먼저 매개변수 absolutes의 배열 길이만큼을 잰 뒤,
-#   2. for문을 활용하여 signs의 배열에서 False가 무엇인지 찾아낸다.
-#   3. 그런 후, False를 찾게된 signs 배열의 그 순서에 맞추어 absolutes의 해당 번호에 음수화 시킨다.
-#   4. 이것을 absolutes의 배열 길이만큼 반복한 뒤,
-#   5. 마지막에 sum()함수를 이용하여 변환된 부호를 적용한 수 모두를 더한 함수를 answer에 저장한 뒤 return한다.
+# 풀이:
+# 1. 부호가 적용된 진짜 숫자들을 담을 빈 바구니(answer = [])를 준비한다.
+# 2. signs의 길이만큼 순서대로 번호(i)를 매기며 하나씩 살펴본다.
+# 3. 만약 i번째 부호(signs[i])가 False(음수)라면, 
+#    i번째 숫자(absolutes[i])에 마이너스(-)를 붙여 answer 바구니에 넣는다(append).
+# 4. 반대로 True(양수)라면, 원래 숫자 그대로 answer 바구니에 넣는다(append).
+# 5. 모든 숫자를 다 담은 뒤, sum() 함수로 바구니 안의 모든 숫자를 합산하여 돌려준다.
 
 def solution(absolutes, signs):
-    answer = 0
+    answer = []
     
-    for i in range(len(absolutes)):
+    for i in range(len(signs)):
         if signs[i] == False:
-            absolutes[i] = -absolutes[i]
-            
-    answer = sum(absolutes)
+            answer.append(-absolutes[i])
+        else:
+            answer.append(absolutes[i])
     
-    return answer
+    return sum(answer)
