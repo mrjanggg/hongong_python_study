@@ -10,10 +10,10 @@
 # 4. 문자열의 길이가 짝수일 경우에, 그 반절의 -1에서 +1을 더한 값의 범위의 인덱스를 찾아 그 값을 return한다.
 
 def solution(s):
-    len_s = len(s)
-    half = int(len_s/2)
 
-    if len_s % 2 == 0:
-        return s[half - 1 : half + 1]
-    else:
-        return s[half]
+    mid_num = int(len(s) / 2)
+    
+    if len(s) % 2 == 0:
+        return s[mid_num - 1 : mid_num + 1]
+    else :
+        return s[mid_num]

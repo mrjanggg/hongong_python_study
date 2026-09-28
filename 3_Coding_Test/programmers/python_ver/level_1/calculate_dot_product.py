@@ -10,9 +10,9 @@
 # 3. 그리고 그 곱한것들의 모든 합의 값을 return한다.
 
 def solution(a, b):
-    answer = 0
+    sum = 0
     
     for i in range(len(a)):
-        answer += a[i]*b[i]
+        sum += a[i]*b[i]
     
-    return answer
+    return sum

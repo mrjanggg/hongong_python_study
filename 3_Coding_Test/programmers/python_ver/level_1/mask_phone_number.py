@@ -3,22 +3,22 @@
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12948
 
 # 풀이:
-# 1. 전화번호의 길이와 마스킹된 개수를 세는 카운트 변수를 활용하여 순회한다.
-# 2. 반복문에서 현재 위치(i)가 뒤에서 4번째 자리 이내인지 확인한다.
-# 3. 만약 뒤에서 4자리가 넘는 위치라면 '*'를 리스트에 추가하고 카운트를 증가시켜 마스킹한다.
-# 4. 뒤에서 4자리가 되는 위치부터는 원본 숫자를 리스트에 추가한다.
-# 5. 최종적으로 리스트의 원소들을 하나의 문자열로 합쳐(join) 반환한다.
+# 1. 글자를 직접 바꿀 수 없는 문자열(phone_number)을 수정 가능한 리스트(phone_num_list)로 변환한다.
+# 2. 뒷자리 4개를 건너뛰고, 뒤에서 5번째 칸(-5)부터 맨 앞 글자까지 거꾸로 하나씩(-1) 찾아간다.
+# 3. 찾아간 각 자리에 원래 있던 숫자 대신 별표('*')를 덮어씌운다.
+#    (만약 전화번호가 딱 4자리라면 이 반복문은 시작되지 않고 바로 통과한다.)
+# 4. 수정이 끝난 리스트의 글자들을 빈틈없이 이어 붙여("".join) 하나의 완성된 문자열로 돌려준다.
 
 def solution(phone_number):
     
-    answer = []
-    count = 0
+    phone_num_list = list(phone_number)
     
-    for i in range(0, len(phone_number), 1):
-        if (len(phone_number) - count) > 4:
-            answer.append('*')
-            count += 1
-        else:
-            answer.append(phone_number[i])
-            
-    return "".join(answer)
+    for i in range(-5, -len(phone_num_list) - 1, -1):
+        phone_num_list[i] = '*'
+    
+    return "".join(phone_num_list)
+
+# 제미나이(AI)의 풀이
+# def solution(phone_number):
+#     # 뒤 4자리를 제외한 길이만큼 '*'을 만들고, 뒷자리 4자리를 그대로 이어 붙임
+#     return '*' * (len(phone_number) - 4) + phone_number[-4:]

@@ -10,25 +10,30 @@
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12943
 
 # 풀이:
-# 1. 처음 매개변수 num이 1이라면 곧바로 0을 return하도록 한다.
-# 2. 그게 아니라면, 500번을 for문으로 반복하여 num이 짝수인지 홀수인지 검사한다.
-# 3. 짝수라면 num을 2로 나누고, 홀수라면 곱하기 3을 한 후에 1을 더한다.
-# 4. 별개의 if조건문을 활용하여 num이 1이 되었는지 이 때 확인한다.
-# 5. 만약 1이 되었다면 몇번 수행했는지를 알기위하여 인덱스값 기준인 i에 1을 더 해 그 값을 return한다.
-# 6. 만약 500을 했는데도 num이 1이 되지 못한다면 -1을 return하도록 한다.
+# 1. 반복 횟수를 셀 카운트 변수(num_count)를 0으로 준비한다.
+# 2. 처음부터 주어진 숫자(num)가 1이라면 작업을 할 필요가 없으므로 0을 바로 돌려준다.
+# 3. num이 1이 될 때까지 while문으로 계속 반복 작업을 수행한다:
+#    - num이 짝수라면 2로 나눈다.
+#    - num이 홀수라면 3을 곱하고 1을 더한다.
+# 4. 연산을 한 번 할 때마다 횟수(num_count)를 1씩 늘린다.
+# 5. 만약 반복 횟수가 500번 이상이 되었는데도 1이 안 된다면 -1을 돌려준다.
+# 6. 숫자가 1이 되어 while문이 무사히 끝나면, 총 반복한 횟수(num_count)를 돌려준다.
 
 def solution(num):
-
+    num_count = 0
+    
     if num == 1:
         return 0
     
-    for i in range(500):
-        if (num % 2) == 0:
-            num = num / 2
-        else:
-            num = (num * 3) + 1
-        
-        if num == 1:
-            return (i + 1)
-        
-    return -1
+    else:
+        while(num != 1):
+            if num % 2 == 0:
+                num = num / 2
+            else:
+                num = (num * 3) + 1
+
+            num_count += 1
+            if num_count >= 500:
+                return -1
+
+    return num_count

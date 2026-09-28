@@ -10,7 +10,5 @@
 # 4. 결과 반환: 완성된 문자열을 반환합니다.
 
 def solution(s):
-    answer = sorted(s, reverse = True)
-    new_answer = "".join(answer)
-    
-    return new_answer
+    list_s = list(s)
+    return "".join(sorted(list_s, reverse = True))
