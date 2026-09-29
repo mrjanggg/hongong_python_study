@@ -13,13 +13,13 @@
 # 4. 부족하지 않은 경우: money가 total_price보다 크거나 같으면, 금액이 부족하지 않으므로 0을 반환합니다.
 
 def solution(price, money, count):
-    answer = 0 
-    total_price = 0
+    
+    sum_of_price = 0
     
     for i in range(1, count + 1):
-        total_price += price * i 
-    
-    if money < total_price:
-        return abs(money - total_price)
-    else:
+        sum_of_price += (i * price)
+        
+    if sum_of_price <= money :
         return 0
+    else:
+        return abs(sum_of_price - money)

@@ -7,19 +7,22 @@
 #       배열 arr에서 연속적으로 나타나는 숫자는 제거하고 남은 수들을 return 하는 solution 함수를 완성해 주세요.
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12906
 
-# 풀이
-# 1. 결과를 담을 빈 배열 answer를 생성합니다. 그리고 주어진 배열 arr의 첫 번째 원소는 어떤 경우든 결과에 포함되므로, answer에 먼저 추가합니다.
-# 2. arr 배열의 두 번째 원소부터 끝까지 반복문을 실행하여, 각 원소를 그 앞의 원소와 비교합니다. 이때 for i in range(len(arr)-1)처럼 배열의 마지막 원소 바로 앞까지 순회해야 인덱스 에러가 발생하지 않습니다.
-# 3. 반복문 안에서 arr[i]와 그 다음 원소인 arr[i+1]이 서로 다른지 확인하는 조건문을 작성합니다.
-# 4. 만약 두 원소가 다르다면, 즉 연속된 숫자의 묶음이 끝났다면, 다음 원소인 arr[i+1]을 answer 배열에 추가합니다.
-# 5. 반복문이 모두 완료되면, 연속된 숫자가 제거된 최종 결과인 answer 배열을 반환합니다.
+# 풀이:
+# 1. 중복이 제거된 결과를 차례대로 담을 빈 상자(answer = [])를 준비하고, 배열의 전체 길이(len_arr)를 구해둔다.
+# 2. 1번 인덱스부터 끝까지 순회하며, 직전 숫자(arr[i-1])와 현재 숫자(arr[i])가 달라지는 '경계 지점'을 찾는다.
+# 3. 숫자가 달라졌다면 연속된 묶음이 끝난 것이므로, 해당 묶음의 대표 숫자인 직전 값(arr[i-1])을 answer에 담는다.
+# 4. 루프가 끝나면 마지막 연속 묶음의 숫자(arr[len_arr-1])가 아직 담기지 않은 상태이므로, 배열이 비어있지 않은지(len_arr > 0) 확인한 후 마지막 숫자를 추가한다.
+# 5. 모든 연속 중복이 제거된 answer를 반환한다.
 
 def solution(arr):
     answer = []
-    answer.append(arr[0])
+    len_arr = len(arr)
     
-    for i in range(len(arr)-1):
-        if arr[i] != arr[i+1]:
-            answer.append(arr[i+1])
+    for i in range(1, len_arr):
+        if arr[i-1] != arr[i]:
+            answer.append(arr[i-1]) 
+    
+    if len_arr > 0:
+        answer.append(arr[len_arr-1])
     
     return answer

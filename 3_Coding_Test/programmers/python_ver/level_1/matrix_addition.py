@@ -3,29 +3,21 @@
 #       2개의 행렬 arr1과 arr2를 입력받아, 행렬 덧셈의 결과를 반환하는 함수, solution을 완성해주세요.
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12950
 
-# 풀이: 
-#   1. 최종 결과 행렬(answer)과 각 행을 임시로 담을 리스트(temp_answer)를 선언하고,
-#      두 행렬의 행(row)과 열(col)의 길이를 미리 구해둡니다.
-#   2. 바깥쪽 for문을 이용해 행(row)만큼 반복을 시작합니다.
-#   3. 안쪽 for문으로 각 행의 열(col)만큼 반복하면서,
-#      arr1[i][j]와 arr2[i][j]의 값을 더해 임시 리스트(temp_answer)에 추가(append)합니다.
-#   4. 안쪽 for문이 끝나면, 완성된 한 줄의 행(temp_answer)을 결과 행렬(answer)에 추가합니다.
-#      그리고 다음 행을 담기 위해 임시 리스트(temp_answer)를 다시 빈 리스트로 초기화합니다.
-#   5. 모든 반복이 끝나면, 행렬 덧셈이 완료된 최종 결과 행렬(answer)을 return합니다.
+# 풀이:
+# 1. 완성된 2차원 행렬을 통째로 담을 빈 상자(answer = [])를 준비한다.
+# 2. 첫 번째 반복문(i)으로 행렬의 세로 줄(행의 개수, len(arr1))만큼 차례대로 내려간다.
+# 3. 새로운 가로 줄(행) 작업을 시작할 때마다, 해당 줄의 숫자들을 모아둘 빈 바구니(row = [])를 새로 꺼낸다.
+# 4. 두 번째 반복문(j)으로 가로 칸(열의 개수, len(arr1[0]))을 하나씩 지나가며, 같은 위치에 있는 두 숫자를 더해 바구니에 담는다(row.append).
+# 5. 한 줄의 계산이 끝나면 완성된 바구니를 큰 상자에 통째로 넣고(answer.append(row)), 모든 줄이 끝날 때까지 반복한 뒤 상자를 반환한다.
 
 def solution(arr1, arr2):
     answer = []
-    temp_answer = []
     
-    row = len(arr1) #2차원 행렬의 행의 길이를 구하는 방식
-    col = len(arr1[0]) #2차원 행렬의 열의 길이를 구하는 방식
-    
-    # 이 문제의 핵심은 2차원 배열을 넣을 때, 리스트를 다시 리스트화 시켜서 넣어야한다는 점이다.(즉 두개의 리스트가 필요함.)
-    # 굉장히 좋은 문제니 나중에 다시 복습하자.
-    for i in range(row):
-        for j in range(col):
-            temp_answer.append(arr1[i][j] + arr2[i][j])
-        answer.append(temp_answer)
-        temp_answer = []
-    
+    for i in range(len(arr1)):
+        row = []  # 매 행을 시작할 때마다 새 바구니 준비 (맨 위에서 미리 선언할 필요 없음)
+        
+        for j in range(len(arr1[0])):
+            row.append(arr1[i][j] + arr2[i][j])
+        answer.append(row)
+        
     return answer

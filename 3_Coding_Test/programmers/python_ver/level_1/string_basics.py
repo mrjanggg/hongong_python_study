@@ -3,24 +3,14 @@
 #       예를 들어 s가 "a234"이면 False를 리턴하고 "1234"라면 True를 리턴하면 됩니다.
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12918
 
-# 풀이
-# 1. 길이 확인: 먼저 len(s)가 4 또는 6인지 확인합니다. 이 조건이 충족되지 않으면 바로 False를 반환하여 불필요한 연산을 줄입니다.
-# 2. 문자 구성 확인: 길이 조건이 충족될 경우, for문을 사용하여 문자열의 각 문자가 숫자인지 확인합니다.
-# 3. 카운트 확인: 모든 문자가 숫자일 경우 증가하는 count 변수가 최종적으로 문자열의 길이(len(s))와 같은지 확인합니다.
-# 4. 결과 반환: count가 len(s)와 같으면 True, 그렇지 않으면 False를 반환합니다.
+# 풀이:
+# 1. 문자열의 길이(len(s))가 4이거나 6인지 먼저 확인한다.
+# 2. 길이가 4나 6이 맞다면, 파이썬 내장 메서드인 s.isdigit()을 실행하여 전부 숫자로만 이루어져 있는지 판별한 결과를 그대로 돌려준다. (전부 숫자면 True, 문자가 섞여 있으면 False 반환)
+# 3. 만약 길이가 4도 아니고 6도 아니라면, 숫자인지 검사할 필요도 없이 곧바로 False를 돌려준다.
 
 def solution(s):
-    count = 0
     
-    for i in range(len(s)):
-        for j in range(0, 9 + 1):
-            if s[i] == "{}".format(j):
-                count += 1
-    
-    if len(s) == 4 or len(s) == 6:
-        if count == len(s):
-            return True
-        else:
-            return False
+    if ( len(s) == 4 or len(s) == 6 ):
+        return s.isdigit()
     else:
         return False
