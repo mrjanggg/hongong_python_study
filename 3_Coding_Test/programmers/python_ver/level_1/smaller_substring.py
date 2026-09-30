@@ -4,26 +4,21 @@
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/147355
 
 # 풀이:
-# 1. 비교 대상(p)과 필요한 길이 정보(len_p, len_t)를 미리 정수형으로 변환 및 계산하여 저장한다. (최적화)
-# 2. 반복문은 t에서 p 길이만큼의 부분 문자열을 정확히 추출할 수 있는 횟수만큼만 순회한다.
-#    - 반복 횟수: len_t - len_p + 1
-# 3. 반복문 내에서 부분 문자열을 슬라이싱하여 정수로 변환한다.
-# 4. 변환된 부분 문자열 숫자가 목표 숫자(target_num)보다 작거나 같으면(<=), 개수(answer)를 1 증가시킨다.
+# 1. 반복문 내부의 불필요한 중복 연산을 방지하기 위해, 비교 기준이 되는 p의 정수값(int_p)과 길이(len_p)를 루프 시작 전에 미리 구해둔다.
+# 2. t에서 p와 동일한 길이의 부분 문자열을 잘라내기 위한 시작 인덱스(i)의 범위를 지정한다.
+#    - 마지막 부분 문자열이 t의 끝을 벗어나지 않도록 range의 범위를 0부터 len(t) - len_p + 1 직전까지 순회한다.
+# 3. 슬라이싱(t[i : i + len_p])을 이용해 p와 길이가 같은 부분 문자열을 추출하고, 이를 정수(int)로 변환한다.
+# 4. 변환된 값이 int_p 이하(<=)인 경우, 조건을 만족하므로 정답 카운트(answer)를 1 증가시킨다.
+# 5. 모든 부분 문자열 검사가 끝나면 최종 카운트(answer)를 반환한다.
 
 def solution(t, p):
     answer = 0
     
-    # 1. 변하지 않는 값은 미리 계산해둡니다. (최적화)
-    target_num = int(p)
+    int_p = int(p)
     len_p = len(p)
-    len_t = len(t)
     
-    # 2. 반복문 실행
-    for i in range(len_t - len_p + 1):
-        # 매번 len(p)를 구하거나 int(p)를 하지 않고, 저장된 변수를 씁니다.
-        sub_num = int(t[i : i + len_p])
-        
-        if sub_num <= target_num:
+    for i in range(0, len(t) - len_p + 1):
+        if (int(t[i : i + len_p]) <= int_p):
             answer += 1
-            
+        
     return answer

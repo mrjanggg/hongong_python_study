@@ -8,19 +8,19 @@
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12982
 
 # 풀이:
-# 1. 탐욕 알고리즘(Greedy Algorithm) 적용: 최대 개수의 부서를 지원하려면, 가장 적은 비용을 요청한 부서부터 지원해야 한다.
-# 2. 부서별 신청 금액 리스트(d)를 오름차순으로 정렬한다.
-# 3. 정렬된 리스트를 순회하며 현재 요청 금액을 잔여 budget과 비교한다.
-# 4. 요청 금액이 budget보다 작거나 같으면, answer(지원 부서 수)를 1 증가시키고 budget에서 해당 금액을 차감한다.
-# 5. budget이 0 미만이 되거나 리스트의 끝에 도달하면 반복을 멈추고 answer를 반환한다.
+# 1. 지원 가능한 최대 부서 수를 구해야 하므로, 신청 금액이 가장 적은 부서부터 우선 지원하는 '탐욕법(Greedy)' 전략을 사용한다.
+# 2. 신청 금액 리스트(d)를 sort()를 사용해 오름차순으로 정렬한다.
+# 3. 정렬된 부서의 신청 금액(i)을 하나씩 확인하며, 현재 남은 예산에서 지원 가능한지(budget - i >= 0) 검사한다.
+# 4. 지원이 가능하다면 지원 부서 수(count)를 1 늘리고, 남은 예산에서 해당 금액을 차감(budget -= i)한다.
+# 5. 모든 부서 확인이 끝난 후 최종 지원 부서 수(count)를 반환한다.
 
 def solution(d, budget):
-    answer = 0
-    sorted_list = sorted(d)
+    count = 0
+    d.sort()
+
+    for i in d:
+        if (budget - i >= 0):
+            count += 1
+            budget -= i
     
-    for i in range(len(sorted_list)):
-        if (sorted_list[i] <= budget) and (0 <= budget):
-            answer += 1
-            budget -= int(sorted_list[i])
-            
-    return answer
+    return count

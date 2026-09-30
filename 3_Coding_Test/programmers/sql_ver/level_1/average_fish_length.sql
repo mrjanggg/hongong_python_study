@@ -12,13 +12,9 @@
 -- 2. `AVG()` 함수로 이 변환된 값들의 평균을 구합니다.
 -- 3. `ROUND(..., 2)`를 사용하여 평균값을 소수점 셋째 자리에서 반올림하여 둘째 자리까지 출력하고, `AS AVERAGE_LENGTH`로 컬럼명을 지정합니다.
 
-
--- 2026.04.11 복습 완료.
-
 SELECT ROUND(AVG(
     CASE
         WHEN LENGTH IS NULL THEN 10
-        WHEN LENGTH <= 10 THEN 10
-        ELSE LENGTH
+        ELSE LENGTH 
     END), 2) AS AVERAGE_LENGTH
 FROM FISH_INFO
