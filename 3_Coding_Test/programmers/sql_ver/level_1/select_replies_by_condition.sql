@@ -4,24 +4,24 @@
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/164673
 
 -- 풀이:
--- 1. `INNER JOIN`을 사용하여 게시글 테이블(`USED_GOODS_BOARD`)과 댓글 테이블(`USED_GOODS_REPLY`)을 `BOARD_ID`를 기준으로 연결합니다.
--- 2. `SELECT` 절에서 필요한 컬럼(제목, ID, 작성자 등)과 함께, `DATE_FORMAT()`을 사용하여 댓글 작성일의 형식을 'YYYY-MM-DD'로 변환하여 조회합니다.
--- 3. `WHERE` 절에 `LIKE '%2022-10%'` 조건을 사용하여 게시글의 `CREATED_DATE`가 2022년 10월인 행만 필터링합니다.
--- 4. `ORDER BY` 절에 댓글 작성일(`USED_GOODS_REPLY.CREATED_DATE`)은 오름차순(`ASC`)으로, 게시글 제목(`USED_GOODS_BOARD.TITLE`)은 오름차순(`ASC`)으로 정렬합니다.
+-- 1. 테이블 결합 (FROM & JOIN):
+--    - 게시글(`USED_GOODS_BOARD`)과 댓글(`USED_GOODS_REPLY`) 테이블을 공통 키인 `BOARD_ID`로 조인합니다.
+-- 2. 조건 필터링 (WHERE):
+--    - 댓글 작성일이 아닌 '게시글 작성일(B.CREATED_DATE)'을 기준으로 2022년 10월 등록 건만 추출합니다.
+-- 3. 출력 데이터 가공 (SELECT):
+--    - 요구된 컬럼들을 추출하며, 동명 컬럼(WRITER_ID, CONTENTS)은 댓글 테이블(R) 기준으로 지정합니다.
+--    - 댓글 작성일(R.CREATED_DATE)은 `DATE_FORMAT`을 적용해 'YYYY-MM-DD' 형식으로 맞춥니다.
+-- 4. 정렬 (ORDER BY):
+--    - 1순위로 댓글 작성일(R.CREATED_DATE) 오름차순, 동점일 경우 2순위로 게시글 제목(B.TITLE) 오름차순 정렬합니다.
 
-
--- 2026.04.15 복습 완료.
-
-SELECT
-    USED_GOODS_BOARD.TITLE,
-    USED_GOODS_BOARD.BOARD_ID,
-    USED_GOODS_REPLY.REPLY_ID,
-    USED_GOODS_REPLY.WRITER_ID,
-    USED_GOODS_REPLY.CONTENTS,
-    date_format(USED_GOODS_REPLY.CREATED_DATE,'%Y-%m-%d') AS CREATED_DATE
-FROM USED_GOODS_BOARD
-    INNER JOIN USED_GOODS_REPLY
-    ON USED_GOODS_BOARD.BOARD_ID = USED_GOODS_REPLY.BOARD_ID
-WHERE
-    USED_GOODS_BOARD.CREATED_DATE LIKE '2022-10%'
-ORDER BY USED_GOODS_REPLY.CREATED_DATE ASC, USED_GOODS_BOARD.TITLE ASC;
+SELECT B.TITLE AS TITLE,
+        B.BOARD_ID AS BOARD_ID,
+        R.REPLY_ID AS REPLY_ID,
+        R.WRITER_ID AS WRITER_ID,
+        R.CONTENTS AS CONTENT,
+        DATE_FORMAT(R.CREATED_DATE, "%Y-%m-%d") AS CREATED_DATE
+FROM USED_GOODS_BOARD AS B
+    JOIN USED_GOODS_REPLY AS R
+    ON B.BOARD_ID = R.BOARD_ID
+WHERE YEAR(B.CREATED_DATE) = 2022 AND MONTH(B.CREATED_DATE) = 10
+ORDER BY R.CREATED_DATE, B.TITLE
