@@ -9,20 +9,27 @@
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/86491
 
 # 풀이
-# 1. 결과에 필요한 최대 가로 길이(max_width)와 최대 세로 길이(max_height)를 0으로 초기화합니다.
-# 2. for 반복문을 사용하여 주어진 명함 크기들(sizes)을 하나씩 확인합니다.
-# 3. 반복문 안에서, 각 명함의 두 길이 중 더 큰 값을 가로(width)로, 더 작은 값을 세로(height)로 통일합니다.
-# 4. 통일된 가로, 세로 길이를 현재까지의 최대 가로, 세로 길이와 비교하여 더 큰 값으로 갱신합니다.
-# 5. 모든 명함을 확인한 후, 최종적으로 갱신된 max_width와 max_height를 곱하여 가장 작은 지갑의 넓이를 반환합니다.
+# 1. 지갑의 최소 크기 계산을 위해 긴 변들의 최댓값(max_w)과 짧은 변들의 최댓값(max_h), 그리고 결과값(answer)을 0으로 초기화합니다.
+# 2. for 반복문과 인덱스(i)를 사용해 모든 명함(sizes[i])을 하나씩 순회합니다.
+# 3. 각 명함의 두 변 중 더 긴 길이는 w(max(sizes[i])), 더 짧은 길이는 h(min(sizes[i]))에 담아 명함의 방향을 한쪽으로 통일합니다.
+# 4. 현재 명함의 w, h가 기존의 max_w, max_h보다 크거나 같으면 각각 최댓값을 갱신합니다.
+# 5. 모든 명함 순회가 끝나면 갱신된 max_w와 max_h를 곱하여 answer에 저장한 뒤 반환합니다.
 
-def solution(number):
-    answer = 0
-    
-    for i in range(0, len(number) - 2):
-        for j in range(i + 1, len(number) - 1):
-            for k in range(j + 1, len(number)):
-                if(number[i] + number[j] + number[k] == 0):
-                    answer += 1
-    
-    
+def solution(sizes):
+    answer, max_w, max_h = 0, 0, 0
+        
+    #순서를 바꿔서, 맨 앞에는 둘 중 큰 수를, 그 뒤는 작은수를 가지는 2차원 배열로 다시 정렬하기.
+    #그 중, 맨 앞에서의 가장 큰 값과, 뒤에서의 가장 큰 값을 각각 찾아내기.
+    for i in range(len(sizes)):
+        w = max(sizes[i])
+        h = min(sizes[i])
+        
+        if w >= max_w:
+            max_w = w
+        if h >= max_h:
+            max_h = h
+        
+    #찾아낸 맨 앞에서의 가장 큰 값과, 뒤에서의 가장 큰 값을 곱하여 반환하기.   
+    answer = max_w * max_h
+        
     return answer

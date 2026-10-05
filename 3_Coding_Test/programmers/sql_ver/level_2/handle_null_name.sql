@@ -11,17 +11,11 @@
 -- 4. `FROM` 절에서 `ANIMAL_INS` 테이블을 지정합니다.
 -- 5. `ORDER BY ANIMAL_ID`를 사용하여 ANIMAL_ID를 기준으로 오름차순 정렬합니다.
 
-
---2026.04.16 복습 완료.
-
-SELECT 
-    ANIMAL_TYPE,
-    CASE
-        WHEN NAME IS NULL THEN 'No name'
-        ELSE NAME
-    END AS NAME,
-    SEX_UPON_INTAKE
-FROM 
-    ANIMAL_INS
-ORDER BY
-    ANIMAL_ID
+SELECT ANIMAL_TYPE,
+        CASE
+            WHEN NAME IS NULL THEN 'No name'
+            ELSE NAME
+        END NAME,
+        SEX_UPON_INTAKE
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID

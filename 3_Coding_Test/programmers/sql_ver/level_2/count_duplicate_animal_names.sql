@@ -3,21 +3,15 @@
 -- 링크: https://school.programmers.co.kr/learn/courses/30/lessons/59041
 
 -- 풀이:
--- 1. `GROUP BY NAME`을 사용하여 동일한 이름을 가진 행들을 그룹으로 묶습니다.
--- 2. `SELECT NAME, COUNT(NAME) AS COUNT`를 사용하여 그룹의 이름과 그 그룹의 크기(중복 횟수)를 계산하고, 컬럼명을 'COUNT'로 지정합니다.
--- 3. `HAVING COUNT(NAME) >= 2`를 사용하여 그룹 중 개수(COUNT)가 2 이상인 그룹만 필터링합니다. (그룹화된 결과에 조건을 적용할 때는 WHERE 대신 HAVING을 사용해야 합니다.)
--- 4. `ORDER BY NAME ASC`를 사용하여 이름의 오름차순으로 결과를 정렬합니다.
+-- 1. `WHERE NAME IS NOT NULL`을 사용하여 이름이 없는(NULL) 데이터를 그룹화 전에 미리 제외합니다.
+-- 2. `GROUP BY NAME`을 사용하여 동일한 이름을 가진 동물끼리 그룹으로 묶습니다.
+-- 3. `HAVING COUNT(NAME) >= 2`를 사용하여 그룹화된 결과 중 이름이 2번 이상 쓰인 그룹만 필터링합니다.
+-- 4. `SELECT` 절에서 이름과 해당 이름이 쓰인 횟수(`COUNT(NAME) AS COUNT`)를 조회합니다.
+-- 5. `ORDER BY NAME`을 사용하여 이름 순(오름차순)으로 결과를 정렬합니다.
 
-
---2026.04.16 복습 완료.
-
-SELECT
-    NAME,count(NAME) AS COUNT
-FROM
-    ANIMAL_INS
-GROUP BY
-    NAME
-HAVING 
-    count(NAME) >= 2
-ORDER BY
-    NAME ASC;
+SELECT NAME, COUNT(NAME) AS COUNT
+FROM ANIMAL_INS
+WHERE NAME IS NOT NULL
+GROUP BY NAME
+HAVING COUNT(NAME) >= 2
+ORDER BY NAME
