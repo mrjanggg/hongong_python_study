@@ -3,29 +3,27 @@
 # 링크: https://school.programmers.co.kr/learn/courses/30/lessons/12926
 
 # 풀이:
-# 1. 문자열 s를 처음부터 끝까지 한 글자씩 순회하며, 변환된 문자를 담을 빈 리스트(answer)를 준비합니다.
-# 2. 각 문자의 아스키 코드(ord)를 구하여, 대문자(65~90)인지 소문자(97~122)인지 확인합니다.
-# 3. 만약 대문자이고, n을 더한 값이 90(Z)을 넘어가면 26(25+1)을 뺀 값을 다시 문자로 변환(chr)하여 answer에 추가합니다.
-# 4. 소문자일 경우에도, n을 더한 값이 122(z)를 넘어가면 26(25+1)을 빼서 문자로 변환하여 answer에 추가합니다.
-# 5. 범위를 넘어가지 않는 경우, n을 더한 값을 바로 문자로 변환하여 answer에 추가합니다.
-# 6. 공백 문자는 그대로 answer에 추가합니다.
-# 7. 모든 순회가 끝나면, 완성된 answer 리스트의 요소들을 하나의 문자열로 합쳐 반환합니다.
+# 1. 암호화된 글자들을 순서대로 모을 결과 리스트(answer)를 준비합니다.
+# 2. 알파벳 대문자 문자열(upper)과 소문자 문자열(lower)을 각각 정의합니다.
+# 3. for 반복문으로 원본 문자열 s의 각 문자(c)를 하나씩 순회합니다.
+# 4. c.isupper()인 경우, upper에서 c의 위치(.index)를 찾아 n만큼 더한 뒤 26으로 나눈 나머지로 새 문자를 구합니다.
+# 5. c.islower()인 경우, lower에서 c의 위치(.index)를 찾아 n만큼 더한 뒤 26으로 나눈 나머지로 새 문자를 구합니다.
+# 6. 알파벳이 아닌 공백(' ')인 경우 변환 없이 그대로 공백을 추가합니다.
+# 7. 변환이 끝난 리스트의 모든 글자를 "".join()으로 결합하여 반환합니다.
 
 def solution(s, n):
     answer = []
+    upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    lower = "abcdefghijklmnopqrstuvwxyz"
     
-    for i in range(len(s)):
-        if 65 <= ord(s[i]) <= 90:
-            if 90 < (ord(s[i]) + n):
-                answer.append(chr(ord(s[i]) + n - 25 - 1))
-            else:
-                answer.append(chr(ord(s[i]) + n))
-        elif 97 <= ord(s[i]) <= 122:
-            if 122 < (ord(s[i]) + n):
-                answer.append(chr(ord(s[i]) + n - 25 - 1))
-            else:
-                answer.append(chr(ord(s[i]) + n))        
+    for c in s:
+        if c.isupper():
+            idx = (upper.index(c) + n) % 26
+            answer.append(upper[idx])
+        elif c.islower():
+            idx = (lower.index(c) + n) % 26
+            answer.append(lower[idx])
         else:
-            answer.append(s[i])
-
+            answer.append(" ")
+            
     return "".join(answer)
