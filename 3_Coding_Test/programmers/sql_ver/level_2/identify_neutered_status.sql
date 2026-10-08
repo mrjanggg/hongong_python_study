@@ -11,15 +11,12 @@
 -- 3. `AS 중성화`를 사용하여 결과 컬럼명을 '중성화'로 지정합니다.
 -- 4. `ORDER BY ANIMAL_ID`를 사용하여 ANIMAL_ID를 기준으로 정렬합니다.
 
-SELECT
-    ANIMAL_ID,
-    NAME,
-    CASE
-        WHEN SEX_UPON_INTAKE LIKE '%Neutered%' THEN 'O'
-        WHEN SEX_UPON_INTAKE LIKE '%Spayed%' THEN 'O'
-        ELSE 'X'
-    END AS 중성화
-FROM
-    ANIMAL_INS
-ORDER BY
-    ANIMAL_ID;
+SELECT ANIMAL_ID,
+        NAME,
+        CASE
+            WHEN SEX_UPON_INTAKE LIKE '%Neutered%' THEN 'O'
+            WHEN SEX_UPON_INTAKE LIKE '%Spayed%' THEN 'O'
+            ELSE 'X'
+        END AS 중성화
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID

@@ -8,16 +8,16 @@
 -- 3. `SELECT CAR_TYPE, COUNT(*) AS CARS`를 사용하여 자동차 종류와 각 그룹의 개수를 계산하고, 컬럼명을 'CARS'로 지정합니다.
 -- 4. `ORDER BY CAR_TYPE ASC`를 사용하여 자동차 종류를 기준으로 오름차순 정렬합니다.
 
-SELECT
-    CAR_TYPE,
-    COUNT(*) AS CARS
-FROM
+SELECT 
+    CAR_TYPE, 
+    COUNT(CAR_ID) AS CARS
+FROM 
     CAR_RENTAL_COMPANY_CAR
-WHERE
-    options LIKE '%통풍시트%' OR
-    options LIKE '%열선시트%' OR
-    options LIKE '%가죽시트%'
-GROUP BY
-    car_type
-ORDER BY
+WHERE 
+    OPTIONS LIKE '%통풍시트%' OR
+    OPTIONS LIKE '%열선시트%' OR
+    OPTIONS LIKE '%가죽시트%'
+GROUP BY 
+    CAR_TYPE
+ORDER BY 
     CAR_TYPE ASC;
